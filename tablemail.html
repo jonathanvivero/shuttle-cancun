@@ -17,15 +17,17 @@
                         <!-- Encabezado de Contacto -->
                         <tr>
                             <td style="width:15px;">&nbsp;</td>
-                            <td>
-                                <img src="https://shuttle-cancun.netlify.app/img/logo.svg" style="width:50%;"/>
+                            <td style="width:45%;">
+                                <img src="https://shuttle-cancun.netlify.app/png/logo.png" style="width:50%;"/>
                             </td>
-                            <td align="right" style="padding:20px; font-family: Arial, sans-serif; font-size:12px; color:#A7A7A7;">
+                            <td align="right" style="padding:20px; font-family: Arial, sans-serif; font-size:12px; color:#A7A7A7; width:45%;">
                                 Contacto / <italic>Contact</italic>
                                 <br> 
-                                +52 998 6090 290  <img src="https://shuttle-cancun.netlify.app/img/email.svg" style="width: 12px;height:12px;">
+                                <div>+52 998 6090 290  <img src="https://shuttle-cancun.netlify.app/png/email.png" style="width: 12px;height:12px;"></div>
                                 <br>
-                                contacto@shuttle2cancun.com <img src="https://shuttle-cancun.netlify.app/img/whatsapp.svg" style="width:12px;height:12px;">
+                                <div>
+                                    contacto@shuttle2cancun.com <img src="https://shuttle-cancun.netlify.app/png/whatsapp.png" style="width:12px;height:12px;">
+                                </div>
                             </td>
                             <td style="width:15px;">&nbsp;</td>
                         </tr>
@@ -88,10 +90,10 @@
                                 <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
                                     <tr>
                                         <td align="left">
-                                            <img src="https://shuttle-cancun.netlify.app/img/calendar.svg" style="width: 16px;height:16px;">
+                                            <img src="https://shuttle-cancun.netlify.app/png/calendar.png" style="width: 16px;height:16px;">
                                             &nbsp;Día / <i>Day</i>
                                         </td>
-                                        <td align="right">
+                                        <td align="right" style="font-weight: 700;">
                                             {{pickup-date.day}}
                                         </td>
                                     </tr>
@@ -104,18 +106,286 @@
                                 <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
                                     <tr>
                                         <td align="left">
-                                            <img src="https://shuttle-cancun.netlify.app/img/clock.svg" style="width: 16px;height:16px;">
+                                            <img src="https://shuttle-cancun.netlify.app/png/clock.png" style="width: 16px;height:16px;">
                                             &nbsp;Hora de Servicio / <i>Service Hour</i>
                                         </td>
-                                        <td align="right">
+                                        <td align="right" style="font-weight: 700;">
                                             {{pickup-date.time}}
                                         </td>
                                     </tr>
                                 </table>
                             </td> 
                         </tr>
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left">
+                                            <img src="https://shuttle-cancun.netlify.app/png/user.png" style="width: 16px;height:16px;">
+                                            &nbsp;# Pasajeros / <i># Passengers</i>
+                                        </td>
+                                        <td align="right" style="font-weight: 700;">
+                                            {{pickup-date.total-passengers}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left">
+                                            <img src="https://shuttle-cancun.netlify.app/png/map-pin.png" style="width: 16px;height:16px;">
+                                            &nbsp;Desde / <i>From</i>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <div style="padding-top:5px;font-weight: 700;">
+                                                {{pickup-date.from}}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left">
+                                            <img src="https://shuttle-cancun.netlify.app/png/map-pin.png" style="width: 16px;height:16px;">
+                                            &nbsp;Destino / <i>Destination</i>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <div style="padding-top:5px;font-weight: 700;">
+                                                {{pickup-date.destination}}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                <table border="0" cellpadding="0" cellspacing="0" bgcolor="#DBDBDB" style="border: 1px solid #808080;border-radius:2px; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:17px; color:#808080; font-weight:700;">
+                                    <tr>
+                                        <td>
+                                            <div style="padding:5px;">Viaje de regreso / <i>Return Trip</i></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left">
+                                            <img src="https://shuttle-cancun.netlify.app/png/calendar.png" style="width: 16px;height:16px;">
+                                            &nbsp;Día / <i>Day</i>
+                                        </td>
+                                        <td align="right" style="font-weight: 700;">
+                                            {{return-trip.day}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left">
+                                            <img src="https://shuttle-cancun.netlify.app/png/clock.png" style="width: 16px;height:16px;">
+                                            &nbsp;Hora de Servicio / <i>Service Hour</i>
+                                        </td>
+                                        <td align="right" style="font-weight: 700;">
+                                            {{return-trip.time}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left">
+                                            <img src="https://shuttle-cancun.netlify.app/png/map-pin.png" style="width: 16px;height:16px;">
+                                            &nbsp;Destino / <i>Destination</i>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <div style="padding-top:5px;font-weight: 700;">
+                                                {{return-trip.destination}}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table border="0" cellpadding="0" cellspacing="0" bgcolor="#DBDBDB" style="border: 1px solid #808080;border-radius:2px; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:17px; color:#808080; font-weight:700;">
+                                    <tr>
+                                        <td>
+                                            <div style="padding:5px;">Servicio / <i>Service</i></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left">
+                                            <img src="https://shuttle-cancun.netlify.app/png/car.png" style="width: 16px;height:16px;">
+                                            &nbsp;Tipo de Vehículo / <i>Vehicle Type</i>
+                                        </td>
+                                        <td align="right" style="font-weight: 700;">
+                                            {{service.vehicle-type}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left">
+                                            <img src="https://shuttle-cancun.netlify.app/png/distance.png" style="width: 16px;height:16px;">
+                                            &nbsp;Distancia estimada / <i>Estimated distance</i>
+                                        </td>
+                                        <td align="right" style="font-weight: 700;">
+                                            {{service.estimated-distance}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table border="0" cellpadding="0" cellspacing="0" bgcolor="#DBDBDB" style="border: 1px solid #808080;border-radius:2px; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:17px; color:#808080; font-weight:700;">
+                                    <tr>
+                                        <td>
+                                            <div style="padding:5px;">Pasajero / <i>Passenger</i></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left" style="font-weight: 700;">
+                                            <img src="https://shuttle-cancun.netlify.app/png/user-group.png" style="width: 16px;height:16px;">
+                                            {{passenger.name}}
+                                        </td>
+                                        <td align="center" style="font-weight: 700;">
+                                            <img src="https://shuttle-cancun.netlify.app/png/phone.png" style="width: 16px;height:16px;">
+                                            {{passenger.phone}}
+                                        </td>
+
+                                        <td align="right" style="font-weight: 700;">
+                                            <img src="https://shuttle-cancun.netlify.app/png/email.png" style="width: 16px;height:16px;">
+                                            {{passenger.email}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
                     </table>
-                    <!-- Fin del Contenedor Principal -->
+                    
+
+                    <!-- agradecimiientos -->
+                    <table cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="border-bottom: 4px solid #EF9E00; width:100%;border-collapse: collapse !important;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:35px; font-size:24px; color:#EF9E00;">
+                        <tr>
+                            <td style="width:15px;">&nbsp;</td>
+                            <td align="center">
+                                <p style="margin-bottom: 1vh; font-weight:700; padding-bottom: 10px;">
+                                    ¡Gracias por viajar con Shuttle2Cancun!
+                                    <br>
+                                    <i>Thanks for traveling with Shuttle2Cancun!</i>                                    
+                                </p>
+                            </td>
+                            <td style="width:15px;">&nbsp;</td>
+                        </tr>
+                    </table>
+
+                     <!-- Info Meeting Point -->
+                     <table cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="border:0; width:100%;border-collapse: collapse !important;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:35px; color:#808080;">
+                        <tr>
+                            <td style="width:15px;">&nbsp;</td>
+                            <td align="center">
+                                <p style="margin-bottom: 1vh;text-transform:uppercase;font-weight:700;font-size:18px;">
+                                    INFORMACION PUNTO DE ENCUENTRO PARA LLEGADA A AEROPUERTO DE CANCUN
+                                    <br>
+                                    <i>MEETING POINT INFORMATION FOR ARRIVAL AT CANCUN AIRPORT</i>                                    
+                                </p>
+                                <p style="font-size:20px;margin-top:10px;">
+                                    En la Terminal 2 para vuelos nacionales e internacionales: Welcome Bar, Zona de andenes (servicios precontratados y agencias de viaje). / <i>In Terminal 2 for national and international flights: Welcome Bar, Platform area (pre-contracted services and travel agencies).</i>
+                                </p>
+                                <p style="font-size:20px;margin-top:10px;">
+                                    En la Terminal 3 para todos los vuelos: Margarita Ville Bar, Zona de andenes (servicios pre contratados y agencias de viaje)/ <i>In Terminal 3 for all flights: Margarita Ville Bar, Platform area (pre-contracted services and travel agencies).</i>    
+                                </p>
+                                <p style="font-size:20px;margin-top:10px;">
+                                    En la Terminal 4 Welcome Bar, Zona de andenes (servicios precontratados y agencias de viaje). / <i>In Terminal 4 Welcome Bar, Platform Area (pre-contracted services and travel agencies)</i>    
+                                </p>                                
+                            </td>
+                            <td style="width:15px;">&nbsp;</td>
+                        </tr>
+                    </table>
+
+                    <!-- Notice box-->
+                    <table cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="border:0; width:100%;border-collapse: collapse !important;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:35px; color:#808080;">
+                        <tr>
+                            <td style="width:50px;">&nbsp;</td>
+                            <td bgcolor="#d6d7d8">
+                                <p style="font-size:16px;font-weight:700; padding:20px;border:1px solid #808080;">
+                                    En dado caso de no localizar a nuestros agentes favor de llamar al teléfono de Cancún: +52(998)4956972. / <i>If you cannot locate our agents, please call the Cancún phone number: +52(998)4956972.</i>
+                                </p>
+                            </td>
+                            <td style="width:50px;">&nbsp;</td>
+                        </tr>
+                    </table>
+
+                    <!-- terminos y condiciones-->
+                    <table cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="border:0; width:100%;border-collapse: collapse !important;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:35px; color:#1500FF;font-size:12px;">
+                        <tr>
+                            <td align="center" style="text-transform: uppercase;">
+                                <a href="#">SERVICIO SUJETO A TERMINOS Y CONDICIONES (*) / <i>SERVICE SUBJECT TO TERMS AND CONDITIONS (*)</i></a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        </table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#454545" style="border: none; width:100%; border-collapse: collapse; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;margin-top:10px;margin-bottom:10px;">
+            <tr>
+                <td align="center">
+                    <img src="https://shuttle-cancun.netlify.app/png/logo_bn.png" style="width:50%;"/>
                 </td>
             </tr>
         </table>
