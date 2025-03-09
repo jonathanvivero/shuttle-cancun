@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        <title>RESERVACION/RESERVATION</title>
+        <!-- <link rel="stylesheet" media="all" href="tablemail.css"/> -->
+        <style type="text/css">            
+        </style>
+    </head>
+    <body style="font-family:Arial,sans-serif;min-width:640px;max-width:800px;width:800px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin: 0 auto;">
+        <table border="0" cellpadding="0px" cellspacing="0" width="100%" bgcolor="#ffffff" style="border: none; width:100%; border-collapse: collapse; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
+            <tr>
+                <td align="center">
+                    <!-- Contenedor principal -->
+                    <table border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="border: none; width:100%;border-collapse: collapse !important;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
+                        <!-- Encabezado de Contacto -->
+                        <tr>
+                            <td>
+                                <img src="./img/logo.png" style="max-width: 350px;"/>                                
+                            </td>
+                            <td align="right" style="padding:20px; font-family: Arial, sans-serif; font-size:12px; color:#A7A7A7;">
+                                Contacto / <italic>Contact</italic>
+                                <br> 
+                                +52 998 6090 290  <img src="img/email.svg" style="width: 12px;height:12px;">
+                                <br>
+                                contacto@shuttle2cancun.com <img src="img/whatsapp.svg" style="width: 12px;height:12px;">
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <!-- Número de Reservación -->
+                    <table border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="border: none; width:100%;border-collapse: collapse !important;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px;">
+                        <tr style="border-top:3px solid #EF9E00;border-bottom:3px solid #EF9E00; color: #113E70; text-transform:uppercase;font-weight:700; font-size:20px;text-align:center;" bgcolor="#DBDBDB">
+                            <td style="padding: 10px 0 10px 0;">
+                                Reservacion / <italic>Reservation</italic>
+                            </td> 
+                            <td style="padding: 10px 0 10px 0;">
+                                {{section.reservation-number}}
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <!-- Saludo -->
+                    <table border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="border: none; width:100%;border-collapse: collapse !important;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:20px; color:#a7a7a7;">
+                        <tr>
+                            <td>
+                                <p style="margin-bottom: 1vh;"><strong>Apreciable cliente / <i>Dear customer</i></strong></p>
+                                <p style="margin-bottom: 1vh;">A continuaci&oacute;n est&aacute; un resumen de tu reservaci&oacute;n. Para cualquier duda, cambio o cancelaci&oacute;n puede contactarnos en +52 998 6090 290 o mediante el correo electr&oacute;nico <a href="mailto:contacto@shuttle2cancun.com">contacto&#64;shuttle2cancun.com</a>.</p>
+                                <p style="margin-bottom: 1vh;"><i>Below is a summary of your reservation. For any questions, changes or cancellations you can contact us at +52 998 6090 290 or by email <a href="mailto:contacto&#64;shuttle2cancun.com">contacto@shuttle2cancun.com</a>.</i></p>
+                            </td>
+                        </tr>
+                    </table>
+                    <table border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="border: none; width:100%;border-collapse: collapse !important;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:20px; color:#a7a7a7;">
+
+                        <tr>
+                            <td colspan="2">
+                                <table class="card-table">
+                                    <thead class="card-table">
+                                        <th style="width:25%;">&nbsp;</th>
+                                        <th style="width:25%;">&nbsp;</th>
+                                        <th style="width:25%;">&nbsp;</th>
+                                        <th style="width:25%;">&nbsp;</th>
+                                    </thead>
+                                    <tbody class="card-table">
+                                        <tr class="card-table">
+                                            <td colspan="4" class="title">                                                
+                                                <div class="text-detail-title">
+                                                    Detalles de la reserva / <span class="italic">Reservation summary</span>
+                                                </div>
+
+                                            </td>                                         
+                                        </tr>
+                                        <tr class="card-table">
+                                            <td colspan="4" class="subtitle">
+                                                <div class="text-detail-sub-title">
+                                                    Fecha de recogida / <span class="italic">Pickup Date:</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                    </tfoot>
+                                </table>
+
+
+                            </td>
+                        </tr>
+                        
+                        <!-- Sección de Detalles de Reservación -->
+                        <tr>
+                            <td style="padding:10px 20px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr class="two-col">
+                                <!-- Columna Izquierda: Detalles de Salida -->
+                                <td class="column" valign="top" style="width:50%; padding:5px; font-family: Arial, sans-serif; font-size:14px; color:#333333; line-height:20px;">
+                                    <strong>Salida / Departure</strong><br>
+                                    <strong>Día / Day:</strong> Friday 24, 2025<br>
+                                    <strong>Desde / From:</strong> Cancun, Quintana Roo (CUN-Cancun Intl.)<br>
+                                    <strong>Hora de servicio / Service Hour:</strong> 13:45 pm<br>
+                                    <strong># Pasajeros / # Passengers:</strong> 3
+                                </td>
+                                <!-- Columna Derecha: Detalles de Regreso -->
+                                <td class="column" valign="top" style="width:50%; padding:5px; font-family: Arial, sans-serif; font-size:14px; color:#333333; line-height:20px;">
+                                    <strong>Regreso / Return</strong><br>
+                                    <strong>Día / Day:</strong> Friday 24, 2025<br>
+                                    <strong>Hora de servicio / Service Hour:</strong> 13:45 pm<br>
+                                    <strong>Tipo de Vehículo / Vehicle Type:</strong> Van<br>
+                                    <strong>Distancia estimada / Estimated Distance:</strong> 20 Km<br>
+                                    <strong>Pasajero / Passenger:</strong> Carlos Jimenez | 9981098350 | carlojimenez@gmail.com
+                                </td>
+                                </tr>
+                                <!-- Fila Completa para el Destino -->
+                                <tr>
+                                <td colspan="2" style="padding:5px; font-family: Arial, sans-serif; font-size:14px; color:#333333;">
+                                    <strong>Destino / Destination:</strong> Cancun Country Club, Km 388. Ctra. Cancún - Playa del Carmen, C.P. 77560
+                                </td>
+                                </tr>
+                            </table>
+                            </td>
+                        </tr>
+                        <!-- Encabezado de Resumen de Reservación -->
+                        <tr>
+                            <td style="padding:10px 20px; background-color:#f0f0f0; font-family: Arial, sans-serif; font-size:14px; color:#333333;">
+                            <strong>DETALLES DE RESERVA  /  RESERVATION SUMMARY</strong>
+                            </td>
+                        </tr>
+                        <!-- Detalles Adicionales (espacio para información extra si se requiere) -->
+                        <tr>
+                            <td style="padding:10px 20px; font-family: Arial, sans-serif; font-size:14px; color:#333333; line-height:20px;">
+                            <strong>Viaje de regreso / Return trip</strong><br>
+                            <strong>Servicio / Service</strong><br>
+                            <strong>Pasajero / Passenger</strong><br>
+                            <strong>Fecha de recogida / Pickup Date:</strong>
+                            </td>
+                        </tr>
+                        <!-- Sección de Agradecimiento -->
+                        <tr>
+                            <td align="center" style="padding:20px; font-family: Arial, sans-serif; font-size:16px; color:#333333;">
+                            ¡Gracias por viajar con Shuttle2Cancun!<br>
+                            Thanks for traveling with Shuttle2Cancun!
+                            </td>
+                        </tr>
+                        <!-- Información del Punto de Encuentro para Llegada -->
+                        <tr>
+                            <td style="padding:10px 20px; font-family: Arial, sans-serif; font-size:12px; color:#666666; line-height:18px;">
+                            <strong>INFORMACION PUNTO DE ENCUENTRO PARA LLEGADA A AEROPUERTO DE CANCUN</strong><br>
+                            <strong>MEETING POINT INFORMATION FOR ARRIVAL AT CANCUN AIRPORT</strong>
+                            </td>
+                        </tr>
+                        <!-- Condiciones del Servicio -->
+                        <tr>
+                            <td style="padding:10px 20px; font-family: Arial, sans-serif; font-size:10px; color:#999999;">
+                            SERVICIO SUJETO A TERMINOS Y CONDICIONES (*) / SERVICE SUBJECT TO TERMS AND CONDITIONS (*)
+                            </td>
+                        </tr>
+                        <!-- Dirección -->
+                        <tr>
+                            <td style="padding:10px 20px; font-family: Arial, sans-serif; font-size:10px; color:#999999; line-height:16px;">
+                            Blvd. Colosio, Sm..549, Mz 1 Lote 3 Fracc. Lagos del Sol. C.P. 77560<br>
+                            Cancún México.
+                            </td>
+                        </tr>
+                        <!-- Pie de Página -->
+                        <tr>
+                            <td align="center" style="padding:10px; font-family: Arial, sans-serif; font-size:10px; color:#999999;">
+                            Copyright: ® 2025 Shuttle 2 Cancun. All Rigth Reserved
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- Fin del Contenedor Principal -->
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

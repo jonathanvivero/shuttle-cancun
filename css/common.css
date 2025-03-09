@@ -1,0 +1,100 @@
+html,
+body {
+    font-family: Arial, sans-serif;
+    min-width: 560px;    
+    margin: var(--top-margin) 0 0 0;
+    padding: 0;
+}
+
+.container {
+    width: var(--body-width);
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+
+a {
+    color: var(--text-color-blue);
+}
+
+.italic-text,
+.italic {
+    font-style: italic;
+}
+
+.label-group {
+    margin-bottom: 1em;
+}
+
+.text-to-right {        
+    text-align: right;
+}
+
+.text-label,
+.text-value {
+    color: var(--text-color-grey);
+}
+
+.bold,
+.text-label, 
+.text-title, 
+.text-banner, 
+.text-main-title,
+.text-detail-title, 
+.text-detail-sub-title {
+    font-weight: 700;
+}
+
+.text-title {
+    color: var(--text-color-dark-grey);
+}
+
+.text-banner {
+    font-size: var(--fs-super);
+    text-transform: uppercase;
+}
+
+.text-main, .text-main-title {
+    font-size: var(--fs-large);
+    color: var(--text-color-grey);
+}
+
+.text-detail-title{
+    font-size: var(--fs-super);
+    color: white;
+    text-transform: uppercase;
+}
+
+.text-detail-sub-title {
+    font-size: var(--fs-med);
+    color: var(--text-color-dark-grey);
+}
+
+.text-detail {
+    font-size: var(--fs-med);
+    color: var(--text-color-grey);
+}
+
+.text-detail-med {
+    font-size: var(--fs-normal);
+    color: var(--text-color-grey);
+}
+
+.text-micro {
+    font-size: var(--fs-micro);
+}
+
+@media screen and (min-width: 1240px) {
+
+    .container {
+        width: 1240px;
+        margin: auto;
+    }
+}
+
+@media print {
+    .container {
+        width: 96%;
+        margin: auto;
+    }
+}

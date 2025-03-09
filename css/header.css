@@ -1,0 +1,39 @@
+    .header {
+        margin-left: var(--margin);
+        margin-right: var(--margin);
+        display: flex;
+        flex-direction: row;
+        
+        align-items: stretch;
+        justify-content: space-between;
+    }
+
+    .header-left {
+        flex: 1;
+        padding-top: var(--outter-padding-top);
+    }
+
+    .header-left .img-logo {
+        display: block;
+        max-width: var(--logo-max-width);
+        width: auto;
+        aspect-ratio: 3.18 / 1;
+        object-fit: contain;
+    }
+
+    .header-right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: end;
+        padding-top: var(--outter-padding-top);
+    }
+
+    .header-right .line {
+        font-size: var(--fs-normal);
+    }
+
+    .header-right .line.empty {
+        min-height: 1.0em;
+    }

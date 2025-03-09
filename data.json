@@ -1,0 +1,16 @@
+{
+    "section.reservation-number":"s-r6a88yp",
+    "pickup-date.day": "Friday 24, 2025",
+    "pickup-date.time": "13:45 pm",
+    "pickup-date.total-passengers": "3",
+    "pickup-date.from": "Cancun, Quintana Roo (CUN-Cancun Intl.)",
+    "pickup-date.destination": "Cancun Country Club, Km 388. Ctra. Cancún - Playa del Carmen, C.P. 77560",
+    "return-trip.day": "Friday 24, 2025",
+    "return-trip.time": "13:45 pm",
+    "return-trip.destination": "Cancun, Quintana Roo (CUN-Cancun Intl.)",
+    "service.vehicle-type": "Van",
+    "service.estimated-distance": "20 Km",
+    "passenger.name": "Carlos Jimenez",
+    "passenger.phone": "9981098350",
+    "passenger.email": "carlosjimenez@gmail.com"    
+}

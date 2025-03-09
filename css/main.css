@@ -1,0 +1,10 @@
+.container main.intro {
+    margin-top: var(--margin);
+    margin-left: var(--margin);
+    margin-right: var(--margin);
+}
+
+.main-content p {
+    margin-bottom: calc(var(--margin)/2);
+    text-align: justify;
+}

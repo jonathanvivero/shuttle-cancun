@@ -1,0 +1,24 @@
+
+.reservation-banner {
+    background-color: var(--text-color-light-grey);
+    color: var(--text-color-dark-blue);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: var(--top-margin);
+    padding-top: var(--banner-v-padding);
+    padding-bottom: var(--banner-v-padding);
+    border-top: 5px solid var(--banner-border-color);
+    border-bottom: 5px solid var(--banner-border-color);
+    margin-left: var(--alt-margin);
+    margin-right: var(--alt-margin);
+}
+
+
+.banner-title {
+    padding-left: var(--margin);
+}
+
+.banner-value {
+    padding-right:  var(--margin);
+}

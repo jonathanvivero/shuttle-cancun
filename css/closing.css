@@ -1,0 +1,43 @@
+.container main.closing, 
+.container main.thanks {
+    margin-left: var(--alt-margin); 
+    margin-right: var(--alt-margin);
+}
+.closing,
+.thanks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.thanks {
+    margin-top: var(--thanks-v-margin);
+    padding-bottom: var(--thanks-v-margin);
+    border-bottom: solid 6px var(--banner-border-color);
+}
+
+.thanks-message {
+    font-size: var(--fs-large);
+    color: var(--banner-border-color);
+}
+
+.closing {
+    margin-top: var(--thanks-v-margin);
+}
+
+.closing-title,
+.closing-text
+{
+    
+    font-size: var(--fs-med);
+    color: var(--text-color-dark-grey);
+}
+
+.closing-title
+{
+    text-transform: uppercase;
+}
+
+.closing-text{
+    margin-top: var(--close-text-v-margin);
+}
