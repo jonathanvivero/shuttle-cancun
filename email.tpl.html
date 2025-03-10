@@ -1,1388 +1,408 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">  
         <title>RESERVACION/RESERVATION</title>
-        <style type="text/css" media="all">
-            * {
-                print-color-adjust: exact;
-              }
-              
-              :root{        
-                  --text-color-grey: #A7A7A7;
-                  --text-color-light-grey: #DBDBDB;
-                  --text-color-dark-grey: #808080;
-                  --text-color-blue: #1500FF;
-                  --text-color-dark-blue: #113E70;
-                  --box-bg-color: #D6D7D8;
-                  --banner-border-color: #EF9E00;
-                  --details-boder-color: #C1C3C4;
-                  --footer-bg-color: #454545;
-                  --footer-brand-text-color: #FFFFFF;
-              }
-              
-              @media only screen {
-                  :root{        
-                      --fs-super: 28px;
-                      --fs-large: 26px;
-                      --fs-med: 20px;
-                      --fs-normal: 16px;
-                      --fs-footer-link: 14px;
-                      --fs-micro: 10px;
-                      --top-margin: 5%;
-                      --outter-padding-left: 2vw;
-                      --outter-padding-right: 2vw;
-                      --outter-padding-top: 2vh;
-                      --body-margin: auto;
-                      --body-width: 1240px;
-                      --margin: 7.5%;    
-                      --alt-margin: 0%;
-                      --alt-padding: 3.75% 7.5% 3.75% 7.5%;
-                      --banner-v-padding: 2vh;
-                      --thanks-v-margin: 3vh;
-                      --close-text-v-margin: 2vh;
-                      --logo-max-width: 100%;
-                      --bottom-brand-v-margin: 5vh;
-                  }
-              }
-              
-              @media print {
-                  
-                  :root {
-                      --margin: 1%;
-                      --fs-super: 16px;
-                      --fs-large: 14px;
-                      --fs-med: 12px;
-                      --fs-normal: 10px;
-                      --fs-footer-link: 8px;
-                      --fs-micro: 8px;
-                      --top-margin: 1%;
-                      --outter-padding-left: 2px;
-                      --outter-padding-right: 2px;
-                      --outter-padding-top: 1px;
-                      --body-margin: none;
-                      --body-width: inherit;
-                      --alt-margin: 1%;
-                      --alt-padding: 1%;
-                      --banner-v-padding: 5px;        
-                      --thanks-v-margin: 5px;
-                      --close-text-v-margin: 4px;
-                      --logo-max-width: 40%;
-                      --bottom-brand-v-margin: 5px;
-                  }
-              }
-              
-              @media only screen and (max-width: 720px) {
-                  :root{
-                      --fs-super: 20px;
-                      --fs-large: 18px;
-                      --fs-med: 16px;
-                      --fs-normal: 12px;
-                      --fs-footer-link: 11px;
-                      --top-margin: 3px;
-                      --outter-padding-left: 2px;
-                      --outter-padding-right: 2px;
-                      --outter-padding-top: 1px;
-                      --body-margin: none;
-                      --body-width: inherit;
-                      --alt-margin: 3.75%;
-                      --alt-padding: 3.75%;
-                  }
-              }
-              
-              @media only screen and (min-width: 721px) and (max-width: 960px) {
-                  :root{
-                      --fs-super: 24px;
-                      --fs-large: 22px;
-                      --fs-med: 16px;        
-                      --fs-normal: 13px;
-                      --fs-footer-link: 12px;
-                      --top-margin: 2%;
-                      --outter-padding-left: 4px;
-                      --outter-padding-right: 4px;
-                      --outter-padding-top: 2px;
-                      --body-margin: none;
-                      --body-width: inherit;
-                      --alt-margin: 3.75%;
-                      --alt-padding: 3.75%;
-                  }
-              }
-              
-              @media only screen and (min-width: 961px) and (max-width: 1240px) {
-                  :root{
-                      --fs-super: 26px;
-                      --fs-large: 24px;
-                      --fs-med: 18px;        
-                      --fs-normal: 14px;
-                      --fs-footer-link: 13px;
-                      --top-margin: 4%;
-                      --outter-padding-left: 1vw;
-                      --outter-padding-right: 1vw;
-                      --outter-padding-top: 1vh;
-                      --body-margin: none;
-                      --body-width: inherit;
-                      --alt-margin: 3.75%;
-                      --alt-padding: 3.75%;
-                  }
-              }
-              
-              html,
-              body {
-                  font-family: Arial, sans-serif;
-                  min-width: 560px;
-                  margin: var(--top-margin) 0 0 0;
-                  padding: 0;
-              }
-              
-              .container {
-                  width: var(--body-width);
-                  display: flex;
-                  flex-direction: column;
-                  justify-items: center;
-              }
-              
-              a {
-                  color: var(--text-color-blue);
-              }
-              
-              .italic-text,
-              .italic {
-                  font-style: italic;
-              }
-              
-              .label-group {
-                  margin-bottom: 1em;
-              }
-              
-              .text-to-right {        
-                  text-align: right;
-              }
-              
-              .text-label,
-              .text-value {
-                  color: var(--text-color-grey);
-              }
-              
-              .bold,
-              .text-label, 
-              .text-title, 
-              .text-banner, 
-              .text-main-title,
-              .text-detail-title, 
-              .text-detail-sub-title {
-                  font-weight: 700;
-              }
-              
-              .text-title {
-                  color: var(--text-color-dark-grey);
-              }
-              
-              .text-banner {
-                  font-size: var(--fs-super);
-                  text-transform: uppercase;
-              }
-              
-              .text-main, .text-main-title {
-                  font-size: var(--fs-large);
-                  color: var(--text-color-grey);
-              }
-              
-              .text-detail-title{
-                  font-size: var(--fs-super);
-                  color: white;
-                  text-transform: uppercase;
-              }
-              
-              .text-detail-sub-title {
-                  font-size: var(--fs-med);
-                  color: var(--text-color-dark-grey);
-              }
-              
-              .text-detail {
-                  font-size: var(--fs-med);
-                  color: var(--text-color-grey);
-              }
-              
-              .text-detail-med {
-                  font-size: var(--fs-normal);
-                  color: var(--text-color-grey);
-              }
-              
-              .text-micro {
-                  font-size: var(--fs-micro);
-              }
-              
-              @media screen and (min-width: 1240px) {
-              
-                  .container {
-                      width: 1240px;
-                      margin: auto;
-                  }
-              }
-              
-              @media print {
-                  .container {
-                      width: 96%;
-                      margin: auto;
-                  }
-              }
-              
-              
-              .icon img,
-              .icon {
-                  display: inline-block;
-                  width: 1em;
-                  height: 1em;
-                  fill: var(--text-color-grey);
-              }
-              
-              .email-icon {
-                  fill-opacity: 1;
-                  stroke: none;
-                  stroke-width: 0px;
-              }
-              
-              .icon-box {
-                  width: 1em;
-                  height: 1em;
-                  background-size: 1em 1em;
-              }
-              
-              .calendar-icon {
-                  content: url("data:image/svg+xml;utf8,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='80px' height='80px' viewBox='0 0 34 32' enable-background='new 0 0 34 32' xml:space='preserve'%3E%3Cg%3E%3Cpath fill='%23808080' d='M34,30.5v-19c0-0.276-0.224-0.5-0.5-0.5S33,11.224,33,11.5v19c0,0.276-0.224,0.5-0.5,0.5h-31 C1.224,31,1,30.776,1,30.5v-19C1,11.224,0.776,11,0.5,11S0,11.224,0,11.5v19C0,31.327,0.673,32,1.5,32h31 C33.327,32,34,31.327,34,30.5z'/%3E%3Cpath fill='%23808080' d='M4.5,23C4.224,23,4,23.224,4,23.5S4.224,24,4.5,24H6v3.5C6,27.776,6.224,28,6.5,28S7,27.776,7,27.5V24h6 v3.5c0,0.276,0.224,0.5,0.5,0.5s0.5-0.224,0.5-0.5V24h6v3.5c0,0.276,0.224,0.5,0.5,0.5s0.5-0.224,0.5-0.5V24h6v3.5 c0,0.276,0.224,0.5,0.5,0.5s0.5-0.224,0.5-0.5V24h1.5c0.276,0,0.5-0.224,0.5-0.5S29.776,23,29.5,23H28v-5h1.5 c0.276,0,0.5-0.224,0.5-0.5S29.776,17,29.5,17H28v-4.5c0-0.276-0.224-0.5-0.5-0.5S27,12.224,27,12.5V17h-6v-4.5 c0-0.276-0.224-0.5-0.5-0.5S20,12.224,20,12.5V17h-6v-4.5c0-0.276-0.224-0.5-0.5-0.5S13,12.224,13,12.5V17H7v-4.5 C7,12.224,6.776,12,6.5,12S6,12.224,6,12.5V17H4.5C4.224,17,4,17.224,4,17.5S4.224,18,4.5,18H6v5H4.5z M27,18v5h-6v-5H27z M20,18v5 h-6v-5H20z M7,18h6v5H7V18z'/%3E%3Cpath fill='%23808080' d='M28.5,3h4.25C32.837,3,33,3,33,3.5V8H1V3.5C1,3.224,1.224,3,1.5,3h4C5.776,3,6,2.776,6,2.5S5.776,2,5.5,2 h-4C0.673,2,0,2.673,0,3.5v5C0,8.776,0.224,9,0.5,9h33C33.776,9,34,8.776,34,8.5v-5C34,2.394,33.354,2,32.75,2H28.5 C28.224,2,28,2.224,28,2.5S28.224,3,28.5,3z'/%3E%3Cpath fill='%23808080' d='M22.5,3C22.776,3,23,2.776,23,2.5S22.776,2,22.5,2h-11C11.224,2,11,2.224,11,2.5S11.224,3,11.5,3H22.5z'/%3E%3Cpath fill='%23808080' d='M9,4.5v-4C9,0.224,8.776,0,8.5,0S8,0.224,8,0.5v4C8,4.776,8.224,5,8.5,5S9,4.776,9,4.5z'/%3E%3Cpath fill='%23808080' d='M25.5,5C25.776,5,26,4.776,26,4.5v-4C26,0.224,25.776,0,25.5,0S25,0.224,25,0.5v4C25,4.776,25.224,5,25.5,5 z'/%3E%3C/g%3E%3C/svg%3E");
-              }
-              
-              .clock-icon {
-                  content: url("data:image/svg+xml;utf8,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='80px' height='80px' viewBox='0 0 32 32' enable-background='new 0 0 32 32' xml:space='preserve'%3E%3Cg%3E%3Cpath fill='%23828282' d='M16,32c8.822,0,16-7.178,16-16S24.822,0,16,0S0,7.178,0,16S7.178,32,16,32z M16,1c8.271,0,15,6.729,15,15 s-6.729,15-15,15S1,24.271,1,16S7.729,1,16,1z'/%3E%3Cpath fill='%23828282' d='M20.061,21.768c0.098,0.098,0.226,0.146,0.354,0.146s0.256-0.049,0.354-0.146 c0.195-0.195,0.195-0.512,0-0.707L16,16.293V9.319c0-0.276-0.224-0.5-0.5-0.5S15,9.043,15,9.319V16.5 c0,0.133,0.053,0.26,0.146,0.354L20.061,21.768z'/%3E%3Ccircle fill='%23828282' cx='4' cy='16' r='1'/%3E%3Ccircle fill='%23828282' cx='28' cy='16' r='1'/%3E%3Ccircle fill='%23828282' cx='16' cy='4' r='1'/%3E%3Ccircle fill='%23828282' cx='16' cy='28' r='1'/%3E%3Ccircle fill='%23828282' cx='8' cy='8' r='1'/%3E%3Ccircle fill='%23828282' cx='24' cy='24' r='1'/%3E%3Ccircle fill='%23828282' cx='25' cy='8' r='1'/%3E%3Ccircle fill='%23828282' cx='8' cy='24' r='1'/%3E%3C/g%3E%3C/svg%3E");
-              }
-              
-              .user-icon {
-                  content : url("data:image/svg+xml;utf8,%3Csvg fill='%23828282' width='80px' height='80px' viewBox='0 0 32 32' version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 16.75c4.28 0 7.75-3.47 7.75-7.75s-3.47-7.75-7.75-7.75c-4.28 0-7.75 3.47-7.75 7.75v0c0.005 4.278 3.472 7.745 7.75 7.75h0zM16 2.75c3.452 0 6.25 2.798 6.25 6.25s-2.798 6.25-6.25 6.25c-3.452 0-6.25-2.798-6.25-6.25v0c0.004-3.45 2.8-6.246 6.25-6.25h0zM30.41 29.84c-1.503-6.677-7.383-11.59-14.41-11.59s-12.907 4.913-14.391 11.491l-0.019 0.099c-0.011 0.048-0.017 0.103-0.017 0.16 0 0.414 0.336 0.75 0.75 0.75 0.357 0 0.656-0.25 0.731-0.585l0.001-0.005c1.351-5.998 6.633-10.41 12.945-10.41s11.594 4.413 12.929 10.322l0.017 0.089c0.076 0.34 0.374 0.59 0.732 0.59 0 0 0.001 0 0.001 0h-0c0.057-0 0.112-0.007 0.165-0.019l-0.005 0.001c0.34-0.076 0.59-0.375 0.59-0.733 0-0.057-0.006-0.112-0.018-0.165l0.001 0.005z'%3E%3C/path%3E%3C/svg%3E");
-              }
-              
-              .map-pin-icon {
-                  content: url("data:image/svg+xml;utf8,%3Csvg width='80' height='80' viewBox='0 0 141.11112 211.66666' version='1.1' id='svg1' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:svg='http://www.w3.org/2000/svg'%3E%3Cdefs id='defs1' /%3E%3Cg id='layer1' transform='translate(-69.761803,-42.597921)'%3E%3Cg transform='matrix(8.8194444,0,0,8.8194444,-0.79374947,-9027.3187)' id='g2'%3E%3Cpath d='m 16,1028.4 c -4.4183,0 -8,3.5817 -8,8 0,1.421 0.3816,2.75 1.0312,3.906 0.1079,0.192 0.221,0.381 0.3438,0.563 L 16,1052.4 l 6.625,-11.531 c 0.102,-0.151 0.19,-0.311 0.281,-0.469 l 0.063,-0.094 c 0.649,-1.156 1.031,-2.485 1.031,-3.906 0,-4.4183 -3.582,-8 -8,-8 z m 0,4 c 2.209,0 4,1.7909 4,4 0,2.209 -1.791,4 -4,4 -2.2091,0 -4,-1.791 -4,-4 0,-2.2091 1.7909,-4 4,-4 z' fill='%23e74c3c' id='path1' style='fill:%23ef9e00;fill-opacity:1' /%3E%3Cpath d='m 16,1031.4 c -2.7614,0 -5,2.2386 -5,5 0,2.761 2.2386,5 5,5 2.761,0 5,-2.239 5,-5 0,-2.7614 -2.239,-5 -5,-5 z m 0,2 c 1.657,0 3,1.3431 3,3 0,1.6569 -1.343,3 -3,3 -1.657,0 -3,-1.3431 -3,-3 0,-1.6569 1.343,-3 3,-3 z' fill='%23c0392b' id='path2' style='fill:%23ef9e00;fill-opacity:1' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-              }
-              
-              .car-icon {
-                  content: url("data:image/svg+xml;utf8,%3Csvg fill='%23828282' height='80px' width='80px' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 408.42 408.42' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cg%3E%3Cpath d='M384.786,168.062l-16.923-11.712l-17.059-74.37c-5.062-22.068-24.41-37.48-47.051-37.48H104.667 c-22.641,0-41.989,15.412-47.051,37.48l-17.059,74.37l-16.923,11.712C8.835,178.304,0,195.164,0,213.161v76.76 c0,12.468,9.725,22.701,21.987,23.529v33.276c0,9.481,7.713,17.194,17.194,17.194h37.147c9.481,0,17.194-7.713,17.194-17.194 V313.51h53.772c1.304,14.904,13.845,26.637,29.082,26.637h70.59c15.237,0,27.779-11.732,29.083-26.637h38.849v33.216 c0,9.481,7.713,17.194,17.194,17.194h37.147c9.481,0,17.194-7.713,17.194-17.194v-33.276 c12.262-0.827,21.987-11.061,21.987-23.529v-76.76C408.421,195.164,399.586,178.304,384.786,168.062z M15,213.161 c0-13.076,6.419-25.325,17.171-32.766l19.314-13.367c1.539-1.065,2.624-2.667,3.042-4.49l17.709-77.205 C75.726,70.123,89.062,59.5,104.667,59.5h199.086c15.605,0,28.941,10.623,32.431,25.834l17.709,77.205 c0.418,1.824,1.503,3.426,3.042,4.49l19.314,13.367c10.752,7.441,17.171,19.69,17.171,32.766v51.989H15V213.161z M78.523,346.727 L78.523,346.727c-0.001,1.21-0.985,2.194-2.195,2.194H39.181c-1.21,0-2.194-0.984-2.194-2.194V313.51h41.536V346.727z M246.967,325.148h-70.59c-6.954,0-12.745-5.028-13.957-11.637h98.506C259.713,320.12,253.921,325.148,246.967,325.148z M371.435,346.727c0,1.209-0.985,2.194-2.195,2.194h-37.147c-1.21,0-2.194-0.984-2.194-2.194v-33.216h41.536V346.727z M393.421,289.922c0,4.736-3.853,8.589-8.589,8.589H23.589c-4.736,0-8.589-3.853-8.589-8.589v-9.771h378.421V289.922z'/%3E%3Cpath d='M69.79,168.357h268.84c2.284,0,4.443-1.041,5.866-2.827c1.423-1.786,1.955-4.124,1.444-6.35L329.359,86.9 c-2.758-12.012-13.289-20.402-25.61-20.402h-199.08c-12.321,0-22.852,8.39-25.61,20.403l-16.58,72.28 c-0.511,2.226,0.021,4.563,1.444,6.35C65.346,167.318,67.506,168.357,69.79,168.357z M93.68,90.256 c1.184-5.156,5.703-8.758,10.99-8.758h199.08c5.287,0,9.806,3.602,10.99,8.757l14.475,63.103H79.205L93.68,90.256z'/%3E%3Cpath d='M100.527,211.253H38.899c-4.142,0-7.5,3.358-7.5,7.5c0,21.126,17.188,38.314,38.314,38.314 c21.126,0,38.314-17.188,38.314-38.314C108.027,214.612,104.669,211.253,100.527,211.253z M69.713,242.068 c-10.233,0-18.947-6.626-22.077-15.814H91.79C88.661,235.442,79.946,242.068,69.713,242.068z'/%3E%3Cpath d='M369.522,211.253h-61.628c-4.142,0-7.5,3.357-7.5,7.5c0,21.126,17.188,38.314,38.314,38.314 c21.126,0,38.314-17.188,38.314-38.314C377.022,214.612,373.664,211.253,369.522,211.253z M338.708,242.068 c-10.233,0-18.947-6.626-22.077-15.814h44.154C357.656,235.442,348.941,242.068,338.708,242.068z'/%3E%3Cpath d='M281.024,239.419C281.434,239.69,280.624,239.149,281.024,239.419L281.024,239.419z'/%3E%3Cpath d='M281.024,239.419c-5.648-3.809-13.189,1.705-11.386,8.225c0.817,2.955,3.398,5.141,6.448,5.462 c3.319,0.35,6.548-1.625,7.76-4.728C285.108,245.148,283.927,241.333,281.024,239.419z'/%3E%3Cpath d='M256.95,238.151H131.559c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5H256.95c4.142,0,7.5-3.358,7.5-7.5 C264.45,241.51,261.092,238.151,256.95,238.151z'/%3E%3Cpath d='M136.864,224.06c4.131-4.253,1.9-11.628-3.993-12.687c-5.686-1.023-10.502,4.881-8.237,10.247 C126.657,226.518,133.107,227.708,136.864,224.06z'/%3E%3Cpath d='M124.634,221.62C124.444,221.169,124.824,222.078,124.634,221.62L124.634,221.62z'/%3E%3Cpath d='M276.863,211.253H151.472c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h125.391c4.142,0,7.5-3.358,7.5-7.5 C284.363,214.612,281.005,211.253,276.863,211.253z'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-              }
-              
-              .distance-icon {
-                  content: url("data:image/svg+xml;utf8,%3Csvg width='80' height='80' viewBox='0 0 135.46666 135.46667' version='1.1' id='svg1' xmlns='http://www.w3.org/2000/svg' xmlns:svg='http://www.w3.org/2000/svg'%3E%3Cdefs id='defs1' /%3E%3Cg id='layer1'%3E%3Cg id='g6' transform='translate(0.25449871,7.125964)'%3E%3Cpath id='path1-8' style='fill:none;stroke:%23828282;stroke-width:2.42713;stroke-dasharray:none;stroke-opacity:1' d='M 132.18119,95.573039 A 28.988184,14.980471 0 0 1 103.193,110.55351 28.988184,14.980471 0 0 1 74.20482,95.573039 28.988184,14.980471 0 0 1 103.193,80.592567 28.988184,14.980471 0 0 1 132.18119,95.573039 Z' /%3E%3Cpath d='m 33.435644,13.144303 c -7.916679,0 -14.314292,6.426825 -14.314292,14.372717 0,7.945894 6.397613,14.372718 14.314292,14.372718 7.624551,0 14.314292,-6.426824 14.314292,-14.372718 0,-7.945892 -6.397613,-14.372717 -14.314292,-14.372717 z m 0,25.003783 c -5.869636,0 -10.572873,-4.326976 -10.572873,-10.23424 0,-5.907262 4.703237,-10.648124 10.572873,-10.648124 5.49338,0 10.572873,4.326976 10.572873,10.234239 0,5.907264 -4.703237,10.648125 -10.572873,10.648125 z' id='path4' style='fill:%23828282;stroke:%23828282;stroke-width:0.0493517;stroke-dasharray:none' /%3E%3Cpath d='m 33.435644,3.6793432 c -12.473883,0 -22.844441,10.1076438 -22.844441,22.9612918 0,12.824436 22.844441,47.120311 22.844441,47.120311 0,0 22.844441,-34.295875 22.844441,-47.120311 0,-12.882863 -10.370558,-22.9612918 -22.844441,-22.9612918 z M 14.751169,26.788874 c 0,-9.783045 8.152042,-17.9459683 18.684475,-17.9459683 10.532433,0 18.684474,8.1629233 18.684474,17.9459683 0,7.820207 -11.901977,27.417455 -18.684474,38.197498 C 26.620539,54.206329 14.751169,34.640237 14.751169,26.788874 Z' id='path5' style='fill:%23828282;stroke:%23828282;stroke-width:0.00889947;stroke-dasharray:none' /%3E%3Cpath style='fill:none;fill-rule:evenodd;stroke:%23828282;stroke-width:2.02261;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1' d='m 58.950045,82.095858 5.074793,1.545871 m 3.636367,1.1077 1.539495,0.468958 m 3.772837,1.149272 5.247329,1.598428' id='path2' /%3E%3Cpath id='path1' style='display:inline;fill:none;stroke:%23828282;stroke-width:2.42713;stroke-dasharray:none;stroke-opacity:1' d='m 40.165719,59.710295 c 13.105917,1.43786 22.938687,7.452413 22.938687,14.653783 0,8.273486 -12.978454,14.98047 -28.988184,14.98047 -16.009731,0 -28.9881836,-6.706986 -28.9881836,-14.98047 0,-7.159048 9.7175416,-13.14519 22.7079686,-14.62796' /%3E%3Cpath style='fill:none;stroke:%23828282;stroke-width:2.02261;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1' d='M 89.403475,109.10233 83.21288,111.441' id='path6' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
-              }
-              
-              .user-group-icon {
-                  content: url("data:image/svg+xml;utf8,%3Csvg fill='%23828282' width='80px' height='80px' viewBox='0 0 32 32' version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13 16.168c1.918-0.007 3.635-0.864 4.793-2.215l0.007-0.009c0.93 1.101 2.312 1.796 3.856 1.796 2.782 0 5.036-2.255 5.036-5.036s-2.255-5.036-5.036-5.036c-1.171 0-2.248 0.4-3.104 1.070l0.011-0.008c-1.106-1.979-3.187-3.294-5.576-3.294-3.516 0-6.366 2.85-6.366 6.366s2.85 6.366 6.366 6.366c0.005 0 0.009 0 0.014 0h-0.001zM19.152 8.172c0.643-0.643 1.532-1.040 2.513-1.040 1.964 0 3.556 1.592 3.556 3.556s-1.592 3.556-3.556 3.556c-1.244 0-2.339-0.639-2.974-1.606l-0.008-0.013c0.432-0.824 0.689-1.8 0.696-2.835v-0.002c-0.008-0.582-0.094-1.141-0.247-1.671l0.011 0.044zM13 4.909c2.695 0 4.879 2.185 4.879 4.879s-2.185 4.879-4.879 4.879-4.879-2.185-4.879-4.879c0-0 0-0 0-0.001v0c0.003-2.694 2.186-4.876 4.88-4.879h0zM30.732 24.996c-0.938-4.22-4.648-7.328-9.085-7.328-1.725 0-3.34 0.47-4.725 1.289l0.043-0.024c-1.18-0.434-2.543-0.687-3.965-0.689h-0.001c-5.713 0.024-10.488 4.013-11.717 9.356l-0.016 0.081c-0.011 0.048-0.017 0.103-0.017 0.16 0 0.414 0.336 0.75 0.75 0.75 0.357 0 0.656-0.25 0.731-0.585l0.001-0.005c1.071-4.757 5.261-8.258 10.268-8.258s9.196 3.5 10.254 8.188l0.013 0.070c0.076 0.34 0.374 0.59 0.732 0.59 0 0 0.001 0 0.001 0h-0c0.057-0 0.112-0.007 0.165-0.019l-0.005 0.001c0.34-0.076 0.59-0.375 0.59-0.733 0-0.057-0.006-0.112-0.018-0.165l0.001 0.005c-0.79-3.454-2.981-6.285-5.929-7.916l-0.062-0.031c0.863-0.358 1.864-0.566 2.915-0.566 3.72 0 6.83 2.609 7.602 6.097l0.010 0.052c0.076 0.34 0.374 0.59 0.732 0.59 0 0 0.001 0 0.001 0h-0c0.057-0 0.112-0.007 0.165-0.019l-0.005 0.001c0.34-0.076 0.59-0.375 0.59-0.733 0-0.057-0.006-0.112-0.018-0.165l0.001 0.005z'%3E%3C/path%3E%3C/svg%3E");
-              }
-              
-              .phone-icon {
-                  content: url("data:image/svg+xml;utf8,%3Csvg width='80px' height='80px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='24' height='24' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2.14089 4.4021C2.34025 2.92963 3.63956 2 4.99004 2H7.55848C8.84977 2 9.99619 2.82629 10.4045 4.05132L11.454 7.19963C11.905 8.55283 11.1086 10.0036 9.72482 10.3496C9.38646 10.4342 9.26975 10.8555 9.51637 11.1022L12.8978 14.4836C13.1445 14.7303 13.5658 14.6135 13.6504 14.2752C13.9964 12.8914 15.4472 12.095 16.8004 12.546L19.9487 13.5955C21.1737 14.0038 22 15.1502 22 16.4415V19.01C22 20.3604 21.0704 21.6598 19.5979 21.8591C18.9114 21.9521 18.211 22 17.5 22C8.93959 22 2 15.0604 2 6.5C2 5.78898 2.04794 5.08863 2.14089 4.4021Z' fill='%23828282'/%3E%3C/svg%3E");
-              }
-              
-              .email-icon {
-                  content: url("data:image/svg+xml;utf8,%3Csvg width='80' height='80' viewBox='0 0 20 20' version='1.1' id='svg1' xmlns='http://www.w3.org/2000/svg' xmlns:svg='http://www.w3.org/2000/svg'%3E%3Cdefs id='defs1' /%3E%3Cg id='layer1'%3E%3Cpath d='M 3,0 V 4.5585938 L 0,6.8183594 V 20 H 20 V 6.8183594 L 17,4.5585938 V 0 Z M 4,1 H 16 V 9.7617188 L 11.990234,12.783203 10.951172,12 H 9.0488281 L 8.0097656,12.783203 4,9.7617188 Z M 3,5.9921875 v 3.015625 L 0.99804688,7.5 Z m 14,0 L 19.001953,7.5 17,9.0078125 Z M 1,8.7539062 7.1796875,13.410156 1,18.066406 Z m 18,0 v 9.3124998 l -6.179688,-4.65625 z M 9.6230469,13 h 0.7539061 l 7.960938,6 H 1.6621094 Z M 11.971609,2.6614588 c 0.554214,0.2903021 0.994065,0.6949658 1.301962,1.2051939 0.307897,0.5102281 0.466242,1.0732385 0.466242,1.6978282 0,0.4662428 -0.07038,0.8621095 -0.219934,1.1875998 C 13.370321,7.0863681 13.176794,7.3326851 12.92168,7.5086258 12.666567,7.6845665 12.376265,7.76374 12.050773,7.76374 11.778067,7.76374 11.549343,7.710959 11.34701,7.5965957 11.206258,7.517423 11.091897,7.4030621 11.003928,7.2623083 10.959945,7.191932 10.863175,7.1831356 10.819193,7.2535029 10.564079,7.5965872 10.185806,7.763731 9.6755788,7.763731 9.3764795,7.763731 9.0861774,7.6845582 8.8310633,7.517414 8.5671567,7.3590763 8.3560278,7.1303534 8.2064783,6.840051 8.0481316,6.5497489 7.9689582,6.2154616 7.9689582,5.828392 c 0,-0.3782727 0.079173,-0.7125601 0.2287229,-1.0116594 C 8.3560278,4.5264305 8.5583597,4.2977076 8.8222708,4.1393609 9.0861819,3.9810143 9.3676871,3.9018408 9.6755833,3.9018408 c 0.3518817,0 0.6509797,0.087972 0.8885007,0.2727083 0.07918,0.052781 0.184735,-0.087972 0.184735,-0.087972 v 0 c 0,0 0.05279,-0.1143609 0.114358,-0.1143609 h 1.020456 c 0.06157,0 0.114359,0.052781 0.114359,0.1143609 V 6.321026 c 0,0.1671443 0.02639,0.2815052 0.08797,0.3518815 0.06157,0.070376 0.140752,0.1055644 0.246317,0.1055644 0.32549,0 0.483837,-0.3958668 0.483837,-1.196397 0,-0.4838371 -0.114358,-0.9236889 -0.343085,-1.3019614 C 12.244305,3.9018408 11.918815,3.6027416 11.505354,3.3916127 11.091892,3.1804839 10.608055,3.0749194 10.06264,3.0749194 c -0.5366198,0 -1.0204569,0.1143609 -1.4339175,0.3430845 C 8.2064648,3.6467269 7.8897715,3.9722171 7.6522514,4.3768808 7.4235284,4.7815445 7.309167,5.2389906 7.309167,5.7492185 c 0,0.5190253 0.114361,0.9852681 0.3430844,1.3899318 0.2287364,0.4134608 0.5454297,0.7301541 0.9588906,0.9588771 0.4134606,0.2287229 0.8885005,0.3430843 1.425119,0.3430843 0.501431,0 0.976472,-0.096768 1.416323,-0.2903021 0.06157,-0.026392 0.131947,0.00881 0.158341,0.070376 l 0.211129,0.6069954 c 0.01757,0.052781 -0.0088,0.1231574 -0.06157,0.1407526 -0.211129,0.087972 -0.457446,0.1671442 -0.738951,0.2287229 -0.32549,0.070376 -0.65098,0.096768 -0.985268,0.096768 -0.7477476,0 -1.3987283,-0.1583455 -1.9705356,-0.4662431 C 7.5027154,8.5202851 7.0628635,8.0980274 6.7461702,7.5614083 6.4382738,7.0247889 6.2799272,6.4177935 6.2799272,5.7404216 c 0,-0.6685748 0.1583455,-1.2667733 0.466243,-1.8033924 C 7.0628635,3.4004099 7.5027154,2.9781521 8.0745226,2.6702557 8.6463301,2.3623596 9.3061077,2.2040129 10.053857,2.2040129 c 0.721355,0.017589 1.354742,0.1671443 1.917752,0.4574459 z M 10.546491,6.4881696 C 10.687243,6.329824 10.75762,6.118694 10.75762,5.8371889 c 0,-0.2815052 -0.07038,-0.4926341 -0.211129,-0.6509807 -0.140753,-0.1583456 -0.325492,-0.228723 -0.5542142,-0.228723 -0.2287232,0 -0.4046639,0.079173 -0.5454165,0.228723 -0.1407526,0.1583455 -0.2111289,0.3694755 -0.2111289,0.6509807 0,0.2815051 0.070376,0.4926342 0.2111289,0.6509807 0.1407526,0.1583455 0.3166933,0.2375201 0.5454165,0.2375201 0.2287222,0 0.4134612,-0.079173 0.5542142,-0.2375201 z' style='fill:%23828282;fill-opacity:1;stroke:none;stroke-width:0px' id='path1' /%3E%3C/g%3E%3C/svg%3E%0A");
-              }
-              
-              .whatsapp-icon {
-                  content: url("data:image/svg+xml;utf8,%3Csvg fill='%23828282' height='80px' width='80px' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 308 308' xml:space='preserve'%3E%3Cg id='XMLID_468_'%3E%3Cpath id='XMLID_469_' d='M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156 c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687 c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887 c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153 c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348 c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802 c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922 c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0 c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458 C233.168,179.508,230.845,178.393,227.904,176.981z'/%3E%3Cpath id='XMLID_470_' d='M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716 c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396 c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188 l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677 c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867 C276.546,215.678,222.799,268.994,156.734,268.994z'/%3E%3C/g%3E%3C/svg%3E");
-              }
-              
-              .header {
-                  margin-left: var(--margin);
-                  margin-right: var(--margin);
-                  display: flex;
-                  flex-direction: row;
-                  
-                  align-items: stretch;
-                  justify-content: space-between;
-              }
-              
-              .header-left {
-                  flex: 1;
-                  padding-top: var(--outter-padding-top);
-              }
-              
-              .header-left .img-logo {
-                  display: block;
-                  max-width: var(--logo-max-width);
-                  width: auto;
-                  aspect-ratio: 3.18 / 1;
-                  object-fit: contain;
-              }
-              
-              .header-right {
-                  flex: 1;
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: space-between;
-                  align-items: end;
-                  padding-top: var(--outter-padding-top);
-              }
-              
-              .header-right .line {
-                  font-size: var(--fs-normal);
-              }
-              
-              .header-right .line.empty {
-                  min-height: 1.0em;
-              }
-              
-              .footer-box {
-                  margin: var(--margin);    
-                  border: 1px var(--text-color-grey) solid;
-                  background-color: var(--box-bg-color);
-                  text-align: center;    
-              }
-              
-              div.terms-and-conditions {
-                  margin: var(--margin);
-                  text-align: center;
-              }
-              
-              div.terms-and-conditions a{
-                  font-size: var(--fs-footer-link) !important;
-                  text-decoration: underline;
-                  text-transform: uppercase;
-              }
-              
-              .bottom-brand{
-                  display: flex;
-                  flex-direction: column;
-                  background-color: var(--footer-bg-color);
-                  color: var(--footer-brand-text-color);
-                  text-align: center;
-              }
-              
-              @media only screen {
-                  .footer-box {
-                      bottom: 1vh;
-                      padding: 1%;
-                  }
-              
-                  .bottom-brand{
-                      padding-top: 5vh;
-                  }
-              
-                  div.terms-and-conditions {
-                      margin-top: 2vh;
-                  }
-              
-                  .bottom-brand .logo {
-                      width: 25%;
-                      margin: auto;
-                  }
-              }
-              
-              @media only print {
-                  .footer-box {
-                      bottom: 1px;
-                      padding: 1px;
-                  }
-                  
-                  .bottom-brand{
-                      padding-top: 2px;
-                  }
-              
-                  div.terms-and-conditions {
-                      margin-top: 2px;
-                  }
-              
-                  .bottom-brand .logo {
-                      display: none;
-                  }
-                  .bottom-brand-address-br{
-                      display: none;
-                  }
-              }
-              
-              .bottom-brand .logo, 
-              .bottom-brand .address, 
-              .bottom-brand .copy {
-                  margin-top: var(--bottom-brand-v-margin);
-                  margin-bottom: var(--bottom-brand-v-margin);
-              }
-              
-              
-              .reservation-banner {
-                  background-color: var(--text-color-light-grey);
-                  color: var(--text-color-dark-blue);
-                  display: flex;
-                  flex-direction: row;
-                  justify-content: space-between;
-                  margin-top: var(--top-margin);
-                  padding-top: var(--banner-v-padding);
-                  padding-bottom: var(--banner-v-padding);
-                  border-top: 5px solid var(--banner-border-color);
-                  border-bottom: 5px solid var(--banner-border-color);
-                  margin-left: var(--alt-margin);
-                  margin-right: var(--alt-margin);
-              }
-              
-              
-              .banner-title {
-                  padding-left: var(--margin);
-              }
-              
-              .banner-value {
-                  padding-right:  var(--margin);
-              }
-              
-              .container main.intro {
-                  margin-top: var(--margin);
-                  margin-left: var(--margin);
-                  margin-right: var(--margin);
-              }
-              
-              .main-content p {
-                  margin-bottom: calc(var(--margin)/2);
-                  text-align: justify;
-              }
-              
-              .container main.details {
-                  margin-left: var(--alt-margin); 
-                  margin-right: var(--alt-margin);
-              }
-              
-              .reservation-details-content {    
-                  padding: var(--alt-padding);
-                  box-sizing: border-box;
-                  border: 1.5px solid var(--details-boder-color);
-                  border-radius: 30px;
-                  display: flex;
-                  flex-direction: column;
-              }
-              
-              .details-title,
-              .details-sub-title, 
-              .details-row-passenger,
-              .details-row, 
-              .details-row-label,
-              .detais-row-label-text,
-              .details-row-value,
-              .details-row-location-label,
-              .details-row-location-label-text,
-              .details-row-location-value,
-              .details-row-passenger, 
-              .details-row-passenger-name, 
-              .details-row-passenger-phone, 
-              .details-row-passenger-email {
-                  display: flex;
-                  flex-direction: row;
-              }
-              
-              .details-row-location {
-                  display: flex;
-                  flex-direction: column;
-                  gap: 1vh;
-              }
-              
-              .details-title {
-                  padding: 1vh 1vw;
-                  justify-content: center;
-              }
-              
-              .details-sub-title {
-                  bottom: 1vh;
-                  padding: 1%;
-                  border: 1px var(--text-color-grey) solid;
-                  border-radius: 2px;
-                  background-color: var(--box-bg-color);
-                  text-align: center;        
-              }
-              
-              .details-row {
-                  justify-content: space-between;
-              }
-              
-              .details-row,
-              .details-row-location {
-                  border-bottom: 2px solid var(--text-color-light-grey);
-              }
-              
-              .details-row-passenger {
-                  justify-content: space-between;
-              }
-              
-              
-              @media only screen {
-                  .reservation-details-content {
-                      box-shadow: 8px 8px 30px 2px var(--details-boder-color),
-                      inset 6px 6px 40px 1px var(--details-boder-color);    
-                      gap: 2vh;
-                  }
-              
-                  .details-title {        
-                      background-color: var(--text-color-dark-grey) !important;
-                  }   
-              
-                  .details-sub-title {
-                      padding: 1%;
-                  }
-              }
-              
-              @media only print {
-                  .reservation-details-content {
-                      box-shadow: none;
-                      gap: 2px;
-                  }
-              
-                  .details-title {        
-                      background-color: var(--text-color-dark-grey) !important;
-                  }   
-              
-                  .details-sub-title {
-                      padding: 1px;
-                  }
-              }
-              
-              .container main.closing, 
-              .container main.thanks {
-                  margin-left: var(--alt-margin); 
-                  margin-right: var(--alt-margin);
-              }
-              .closing,
-              .thanks {
-                  display: flex;
-                  flex-direction: column;
-                  align-items: center;
-              }
-              
-              .thanks {
-                  margin-top: var(--thanks-v-margin);
-                  padding-bottom: var(--thanks-v-margin);
-                  border-bottom: solid 6px var(--banner-border-color);
-              }
-              
-              .thanks-message {
-                  font-size: var(--fs-large);
-                  color: var(--banner-border-color);
-              }
-              
-              .closing {
-                  margin-top: var(--thanks-v-margin);
-              }
-              
-              .closing-title,
-              .closing-text
-              {
-                  
-                  font-size: var(--fs-med);
-                  color: var(--text-color-dark-grey);
-              }
-              
-              .closing-title
-              {
-                  text-transform: uppercase;
-              }
-              
-              .closing-text{
-                  margin-top: var(--close-text-v-margin);
-              }          
+        <!-- <link rel="stylesheet" media="all" href="tablemail.css"/> -->
+        <style type="text/css">            
         </style>
-      </head>
-    <body>
-        <div class="container">
-            <header class="header">
-                <div class="header-left">
-                    <svg class="img-logo" id="logo-svg" xmlns="http://www.w3.org/2000/svg" style="transform: none; transform-origin: 50% 50%; cursor: move; max-height: 488.68px;" viewBox="0 0 16800 5280">
-                        <g id="l1aojoqVgAKsrxtfVdq9mLN" fill="rgb(255,255,255)" style="transform: none;">
-                            <g style="transform: none;">
-                                <path id="logo-svg-01" d="M0 2640 l0 -2640 8400 0 8400 0 0 2640 0 2640 -8400 0 -8400 0 0 -2640z 
-                                m1548 2430 c271 -29 531 -145 716 -320 42 -40 76 -77 76 -81 0 -5 -91 -54 -202 -109 -182 -91 -203 -99 -211 -83 -5 10 -40 48 -78 85 -224 219 -628 225 -857 13 -154 -143 -224 -328 -225 -595 0 -289 89 -503 265 -635 168
-                                -127 390 -155 614 -80 110 37 238 132 281 209 9 16 29 8 206 -79 108 -53 199 -101 203 -107 10 -16 -129 -144 -223 -205 -318 -207 -719 -262 -1085 -147 -514 161 -819 607 -775 1134 30 354 210 646 512 830 224 137 510 199
-                                783 170z m6269 -16 c256 -53 443 -147 611 -308 l83 -80 -202 -102 -203 -101 -80 82 c-122 125 -230 172 -416 182 -75 3 -126 1 -177 -10 -231 -50 -402 -218 -473 -467 -32 -108 -39 -361 -15 -480 57 -282 215 -461 460 -526
-                                128 -34 332 -18 444 33 68 31 149 92 202 152 l54 60 203 -101 204 -100 -54 -55 c-217 -222 -544 -355 -877 -355 -348 0 -656 125 -882 359 -92 95 -128 147 -185 267 -140 295 -138 667 6 958 169 340 525 573 940 612 81 7 278
-                                -3 357 -20z m1868 12 c117 -17 262 -67 350 -118 194 -114 321 -323 313 -515 l-3 -68 -45 -7 c-61 -9 -210 -42 -352 -76 l-118 -29 0 151 c0 170 -11 210 -70 259 -54 46 -97 59 -195 60 -132 1 -204 -37 -246 -128 -16 -35 -19
-                                -68 -19 -275 l0 -235 -73 -24 c-39 -12 -154 -54 -253 -92 -100 -38 -184 -69 -188 -69 -3 0 -6 132 -6 293 0 329 7 382 64 494 79 158 252 292 456 354 130 39 243 47 385 25z m6885 -401 l0 -415 -677 -1 c-373 0 -828 0 -1010 
-                                0 l-333 0 0 -36 c0 -107 122 -224 615 -592 755 -563 1080 -894 1275 -1296 111 -229 149 -377 150 -590 3 -255 -43 -456 -148 -658 -77 -146 -128 -213 -257 -343 -187 -187 -398 -314 -677 -408 -263 -89 -500 -122 -796 -113
-                                -520 16 -950 170 -1295 466 -264 225 -441 536 -518 911 -23 112 -24 129 -24 590 0 425 2 481 18 530 28 89 61 143 108 179 42 32 47 33 108 28 130 -10 325 -135 550 -352 69 -67 178 -164 241 -217 63 -52 165 -138 226 -189
-                                758 -639 1009 -846 1042 -857 23 -9 64 -12 109 -9 120 7 186 69 200 187 6 55 -11 133 -37 167 -14 18 -131 119 -345 296 -27 23 -73 64 -101 92 -57 55 -53 45 -103 280 -17 83 -45 211 -61 285 -48 221 -109 509 -131 610 -34
-                                156 -32 154 -117 215 -67 48 -82 55 -124 55 -35 0 -54 -6 -68 -20 -19 -19 -20 -33 -19 -197 0 -98 4 -252 8 -343 8 -182 3 -211 -45 -249 -44 -35 -73 -27 -155 41 -466 389 -697 589 -755 651 -89 96 -180 230 -253 375 -168
-                                333 -287 798 -298 1160 l-6 182 1852 0 1851 0 0 -415z m-13565 165 l48 -220 330 2 330 3 44 205 c25 113 47 211 49 218 2 9 59 12 237 12 l233 0 -108 -412 c-60 -227 -131 -498 -158 -603 -28 -104 -61 -230 -74 -280 -52 -197
-                                -90 -340 -146 -555 -33 -124 -63 -238 -68 -255 l-8 -30 -330 -3 -331 -2 -36 137 c-21 76 -64 239 -96 363 -33 124 -68 259 -80 300 -11 41 -34 129 -51 195 -17 66 -58 221 -90 345 -33 124 -78 295 -100 380 -38 146 -96 364
-                                -106 403 -5 16 11 17 229 17 l234 0 48 -220z m2005 163 c0 -32 -7 -227 -15 -433 -8 -206 -15 -439 -15 -517 l0 -143 33 0 c33 0 35 2 122 168 130 247 328 625 425 812 l85 165 263 3 262 2 0 -1070 0 -1070 -261 0 -261 0 6
-                                98 c6 88 17 362 31 712 3 74 8 183 11 243 l6 107 -40 0 c-35 0 -41 -4 -52 -31 -13 -31 -116 -229 -313 -599 -22 -41 -78 -149 -125 -240 -47 -91 -100 -192 -118 -225 l-33 -60 -260 -3 -261 -2 0 1070 0 1070 255 0 255 0 0
-                                -57z m6126 -105 c-3 -90 -9 -229 -12 -309 l-7 -146 -201 -7 c-110 -3 -220 -9 -243 -12 l-43 -7 0 322 0 321 256 0 257 0 -7 -162z m1154 -338 c0 -275 -3 -500 -6 -500 -3 0 -55 27 -116 61 -228 126 -547 253 -691 274 l-44
-                                7 103 196 c57 109 134 257 171 330 l68 132 257 0 258 0 0 -500z m-1190 -586 l0 -75 38 3 c35 3 39 7 67 65 26 53 34 62 58 62 65 2 427 -64 427 -78 0 -3 -14 -31 -31 -61 -17 -30 -60 -111 -96 -180 -36 -69 -88 -167 -114 
-                                -217 -27 -51 -71 -135 -98 -185 -26 -51 -79 -151 -116 -223 -38 -71 -73 -138 -79 -147 -10 -16 -34 -18 -268 -18 l-258 0 0 559 c0 438 3 560 13 564 6 3 112 6 235 6 l222 1 0 -76z m-744 5 c-3 -17 -6 -263 -6 -545 l0 -514
-                                -260 0 -260 0 2 487 3 486 100 29 c107 30 364 86 404 87 21 1 23 -2 17 -30z m1590 -90 c121 -38 222 -73 292 -101 l52 -22 0 -423 0 -423 -255 0 c-140 0 -255 3 -255 8 0 4 9 212 20 462 11 250 20 472 20 493 0 24 5 37 14
-                                37 7 0 58 -14 112 -31z m-2646 -589 l0 -380 -260 0 -260 0 0 244 0 243 128 74 c144 83 367 199 382 199 7 0 10 -130 10 -380z m-7794 -1029 c180 -34 351 -177 404 -338 36 -105 59 -264 48 -324 -19 -103 -87 -192 -183 -240
-                                l-50 -24 -430 -5 c-236 -3 -438 -9 -447 -14 -14 -6 -18 -21 -18 -61 0 -72 17 -156 36 -175 13 -13 89 -16 549 -20 l533 -5 26 -24 c31 -29 40 -56 62 -190 l16 -105 -22 -18 c-21 -17 -57 -18 -576 -18 -360 0 -571 4 -606 11
-                                -160 33 -330 178 -383 329 -29 80 -57 250 -53 314 10 152 129 273 290 297 35 5 235 9 446 9 l382 0 12 25 c18 41 -6 164 -38 193 l-25 22 -535 0 -534 0 -35 33 c-31 29 -36 42 -52 127 -9 52 -17 115 -17 140 -1 37 3 46 24
-                                57 30 15 1097 19 1176 4z m1001 -8 c20 -9 41 -29 49 -47 7 -17 34 -146 59 -286 25 -140 50 -259 54 -263 9 -9 635 -17 659 -9 17 6 15 88 -3 192 -9 47 -25 135 -36 195 -34 185 -35 200 -8 219 19 13 50 16 167 16 145 0 192
-                                -9 220 -42 12 -15 31 -105 81 -380 11 -65 30 -169 42 -230 11 -62 51 -284 89 -493 l68 -380 -21 -23 c-20 -21 -28 -22 -176 -22 -174 0 -207 10 -229 66 -6 16 -29 137 -52 269 -24 132 -47 248 -52 258 -8 16 -32 17 -341 15
-                                l-332 -3 -3 -38 c-3 -33 32 -249 73 -452 14 -67 13 -70 -7 -92 -21 -22 -28 -23 -175 -23 -118 0 -161 4 -183 15 -33 17 -54 53 -63 105 -7 42 -45 255 -86 480 -106 583 -161 893 -161 914 0 47 30 56 188 56 113 0 151 -4 179
-                                -17z m2784 3 c167 -35 320 -165 383 -325 17 -45 36 -141 131 -671 31 -173 65 -362 76 -419 27 -146 33 -141 -177 -141 -159 0 -163 1 -192 25 -17 14 -33 38 -36 53 -11 57 -47 257 -96 532 -28 157 -60 337 -71 400 -27 150
-                                -34 167 -73 178 -45 14 -695 16 -729 3 -25 -10 -27 -15 -27 -67 0 -31 7 -91 15 -133 46 -235 165 -913 165 -938 0 -50 -10 -53 -186 -53 -226 0 -207 -23 -269 325 -20 110 -42 236 -50 280 -15 86 -77 431 -100 558 -10 56
-                                -12 92 -5 127 26 137 133 243 270 269 25 4 238 9 474 9 333 1 445 -2 497 -12z m1498 -20 c16 -16 32 -41 35 -55 15 -79 80 -438 167 -926 24 -135 34 -174 51 -188 18 -15 46 -17 260 -17 l240 0 27 -28 c28 -27 32 -41 67 -249
-                                5 -23 1 -36 -15 -52 -21 -21 -24 -21 -733 -21 -695 0 -714 1 -746 20 -42 26 -48 41 -71 180 -27 161 -46 150 250 150 254 0 269 3 269 51 0 21 -33 220 -50 299 -5 25 -35 187 -65 360 -31 173 -63 349 -71 390 l-15 75 27 23
-                                c26 23 32 23 185 20 l158 -3 30 -29z m1616 20 c22 -10 40 -27 50 -48 8 -18 47 -211 86 -428 128 -718 125 -702 145 -717 14 -10 75 -13 259 -13 l241 0 26 -27 c20 -21 31 -49 43 -113 9 -47 20 -104 24 -127 7 -36 5 -45 -13
-                                -62 -22 -21 -30 -21 -735 -21 -787 0 -759 -2 -786 63 -7 18 -21 82 -31 144 -15 92 -15 114 -5 127 12 14 47 16 248 16 142 0 242 4 254 10 27 15 25 42 -26 331 -25 140 -53 292 -61 339 -8 47 -31 169 -50 272 -40 221 -41 232
-                                -12 252 31 22 292 23 343 2z m2114 -21 c26 -26 33 -46 51 -140 11 -60 22 -119 25 -131 3 -12 -4 -30 -16 -42 -20 -22 -23 -22 -419 -22 -464 0 -436 6 -427 -94 4 -34 47 -285 97 -558 49 -273 87 -504 84 -513 -12 -29 -42 -35
-                                -198 -35 l-156 0 -35 33 -34 32 -61 340 c-34 187 -70 388 -81 448 -10 59 -28 155 -39 215 -58 321 -79 453 -74 465 13 34 45 36 651 34 l603 -2 29 -30z m1670 18 c17 -15 27 -48 49 -176 22 -120 26 -160 17 -167 -8 -6 -199
-                                -12 -496 -15 -266 -2 -487 -4 -491 -5 -17 0 5 -195 26 -229 5 -8 119 -11 405 -11 l398 0 20 -22 c14 -16 27 -58 42 -139 26 -141 26 -165 4 -174 -10 -3 -184 -6 -388 -5 -203 1 -378 1 -387 1 -15 -1 -18 -10 -18 -53 0 -73
-                                20 -176 37 -193 12 -13 88 -15 502 -15 462 0 489 -1 505 -19 20 -22 74 -307 60 -321 -11 -10 -1263 -20 -1342 -10 -37 5 -61 14 -78 32 -28 28 -33 44 -70 250 -50 283 -63 355 -89 498 -58 323 -100 551 -120 660 l-15 85 25 23
-                                26 22 678 0 c632 0 680 -1 700 -17z"></path>
-                                <path id="p4TOwNkL7" d="M13895 2086 c-38 -7 -108 -18 -155 -25 -422 -61 -579 -87 -595 -101 -10 -9 -15 -31 -15 -72 l0 -59 61 -57 c34 -31 71 -62 83 -69 12 -6 176 -23 376 -37 195 -14 404 -30 464 -36 60 -6 166 -14 236 -17
-                                    122 -6 128 -5 149 16 18 18 21 31 19 74 l-3 52 -121 100 c-66 55 -158 131 -205 170 l-84 70 -70 2 c-38 1 -101 -4 -140 -11z"></path>
-                                <path id="pN55wzAt0" d="M3150 4222 c0 -21 18 -119 40 -218 23 -98 58 -260 80 -359 21 -99 48 -222 60 -272 l22 -93 32 0 32 0 33 153 c18 83 41 188 51 232 10 44 28 121 39 170 11 50 32 142 46 205 15 63 29 138 32 167 l6 53
-                                    -237 0 -236 0 0 -38z"></path>
-                            </g>
-                        </g>
-                        <g id="l6RVHo3aSi7XUMp3cJdLhZp" fill="rgb(0,175,192)" style="transform: none;">
-                            <g style="transform: none;">
-                                <path id="p1Ez4X6Qe8" d="M12839 5088 c-3 -92 1 -294 6 -343 28 -256 115 -606 214 -853 66 -165 112 -252 220 -415 88 -135 175 -214 870 -795 81 -67 119 -81 174 -63 72 24 102 87 93 193 -3 40 -9 191 -11 335 -6 254 -5 263 15
-                                    283 11 11 28 20 38 20 10 0 52 -25 94 -55 85 -61 83 -59 117 -215 22 -101 83 -389 131 -610 16 -74 44 -202 61 -285 50 -235 46 -225 103 -280 28 -28 74 -69 101 -92 215 -178 331 -278 345 -296 105 -139 -47 -344 -212 -285
-                                    -33 11 -282 217 -1042 857 -61 51 -163 137 -226 189 -63 53 -172 150 -241 217 -274 264 -493 384 -651 355 -96 -18 -172 -136 -193 -302 -10 -83 -7 -849 4 -950 66 -606 422 -1084 996 -1336 296 -129 606 -188 980 -184 434 
-                                    5 843 123 1170 340 116 76 316 270 385 372 102 153 181 336 215 502 51 255 36 554 -41 770 -40 112 -136 303 -202 403 -219 328 -522 612 -1157 1086 -266 199 -347 262 -446 351 -78 69 -152 157 -163 193 -6 20 -1 20 1002
-                                    20 l1007 1 3 447 2 447 -1880 0 -1880 0 -1 -22z m1321 -3094 c356 -293 354 -290 310 -334 -19 -19 -28 -20 -123 -15 -56 3 -140 10 -187 15 -47 5 -135 12 -195 15 -61 3 -124 8 -140 10 -17 2 -77 6 -135 10 -58 4 -117 8 -132
-                                    10 -14 2 -73 6 -129 10 -57 4 -113 12 -125 18 -12 7 -49 38 -83 69 -48 45 -61 63 -61 86 0 16 7 35 15 42 16 14 173 40 595 101 47 7 117 18 155 25 119 22 140 16 235 -62z"></path>
-                                <path id="pDTSQwsr0" d="M8032 4479 l43 -52 3 34 c2 18 -1 35 -7 37 -6 2 -11 10 -11 18 0 9 -12 14 -36 14 l-35 0 43 -51z"></path>
-                                <path id="p3lqRqOkE" d="M910 4490 c0 -5 -7 -10 -15 -10 -10 0 -15 -11 -15 -35 0 -31 -3 -35 -25 -35 -20 0 -25 -5 -25 -24 0 -18 -8 -27 -30 -35 -16 -5 -30 -17 -30 -25 0 -14 -29 -16 -229 -16 l-229 0 6 45 c4 37 2 45 -12 45
-                                    -19 0 -30 -26 -57 -130 -60 -241 -38 -538 56 -762 l15 -38 296 0 c337 0 341 1 297 64 -69 103 -117 288 -116 451 2 171 48 332 129 451 l44 64 -30 0 c-17 0 -30 -4 -30 -10z"></path>
-                                <path id="p18WzThvrG" d="M1900 4440 c12 -16 22 -30 24 -30 13 0 86 43 86 50 0 6 -30 10 -66 10 l-65 0 21 -30z"></path>
-                                <path id="pzqLEKie2" d="M4076 4380 l-18 -70 -674 0 c-653 0 -674 1 -674 19 0 10 -9 21 -20 24 -12 3 -20 14 -20 26 0 15 -6 21 -24 21 l-24 0 39 -147 c22 -82 59 -224 83 -318 25 -93 57 -215 72 -270 14 -55 32 -120 38 -145 l12
-                                    -45 222 -3 c214 -2 222 -3 222 -22 0 -13 7 -20 20 -20 11 0 20 3 20 7 0 9 -80 376 -130 599 -22 98 -40 181 -40 186 0 4 92 8 205 8 l205 0 -5 -22 c-4 -22 -35 -160 -76 -343 -11 -49 -29 -130 -40 -180 -12 -49 -27 -118 -35
-                                    -152 -8 -34 -14 -67 -14 -73 0 -13 57 -13 65 0 4 6 85 10 209 10 l204 0 26 98 c36 132 114 429 171 647 25 99 50 192 55 208 9 26 7 27 -24 27 -31 0 -33 -1 -50 -70z"></path>
-                                <path id="pj6GTHds0" d="M11394 4405 c-7 -19 -14 -36 -14 -38 0 -2 24 -7 53 -10 152 -18 492 -155 757 -304 69 -39 127 -69 130 -67 2 3 5 77 6 164 l2 160 -292 0 c-272 0 -295 1 -346 21 -30 12 -100 31 -155 44 -86 19 -100 25
-                                    -103 44 -5 31 -21 26 -38 -14z"></path>
-                                <path id="pbSysPH4G" d="M10790 4410 c0 -15 7 -20 29 -20 39 0 61 9 61 26 0 10 -13 14 -45 14 -38 0 -45 -3 -45 -20z"></path>
-                                <path id="pinQgC3I" d="M10350 4390 c0 -13 -7 -20 -20 -20 -13 0 -20 -7 -20 -20 0 -15 7 -20 29 -20 16 0 33 6 38 13 8 11 9 18 5 55 -3 20 -32 14 -32 -8z"></path>
-                                <path id="p1DDCcKRTQ" d="M10594 4394 c3 -9 6 -18 6 -20 0 -6 36 -5 54 2 33 13 17 34 -25 34 -33 0 -40 -3 -35 -16z"></path>
-                                <path id="pttt1n6Dj" d="M5150 4183 c-51 -98 -104 -196 -117 -218 l-24 -40 4 193 3 192 -270 -2 -271 -3 -3 -418 -2 -417 446 2 446 3 50 95 c167 318 216 411 228 439 18 45 33 39 26 -11 -3 -24 -8 -122 -11 -218 -4 -96 -8 -212
-                                    -10 -257 -4 -82 -4 -83 21 -83 15 0 24 6 24 15 0 13 30 15 213 15 201 0 213 -1 225 -20 8 -13 23 -20 42 -20 l30 0 0 418 c0 229 -3 427 -6 440 l-6 22 -464 0 -464 0 0 25 c0 14 -4 25 -9 25 -5 0 -50 -80 -101 -177z"></path>
-                                <path id="pyzwy0CFA" d="M10140 4334 c-30 -7 -119 -17 -197 -20 l-143 -7 0 -49 c0 -26 2 -48 4 -48 3 0 69 16 148 35 79 20 177 42 218 51 103 21 110 23 110 40 0 18 -63 17 -140 -2z"></path>
-                                <path id="p11Sn7xO1p" d="M6950 4324 c0 -14 -29 -15 -264 -12 l-265 3 -10 -40 c-11 -43 -28 -177 -34 -265 -5 -70 17 -277 38 -354 9 -33 28 -88 42 -123 l25 -63 278 0 c189 0 279 -3 282 -11 2 -6 22 -9 45 -7 l42 3 -44 65 c-91
-                                    136 -126 278 -121 485 3 133 21 225 61 318 6 15 1 17 -34 17 -31 0 -41 -4 -41 -16z"></path>
-                                <path id="pNlIldYcP" d="M8750 4078 l0 -238 53 21 c126 51 388 149 454 170 l73 24 0 115 c0 63 -4 120 -8 127 -5 8 -87 12 -290 15 l-282 3 0 -237z"></path>
-                                <path id="peNyi2uxw" d="M10740 4073 c-8 -1 -44 -4 -79 -5 l-63 -3 0 -220 c1 -429 0 -395 22 -395 11 0 20 4 20 10 0 6 153 11 426 12 l426 3 62 120 c34 66 92 177 130 247 48 91 64 129 54 132 -53 17 -342 67 -470 81 l-57 6 -27
-                                    -60 c-14 -34 -33 -66 -42 -73 -14 -12 -15 -5 -9 60 5 54 4 74 -5 77 -13 5 -361 12 -388 8z"></path>
-                                <path id="pb5qryNPc" d="M10320 4033 c-132 -24 -334 -68 -415 -91 l-100 -29 -3 -221 -2 -222 260 0 c167 0 260 -4 260 -10 0 -5 14 -10 30 -10 28 0 30 2 30 38 0 20 1 152 2 292 3 249 3 255 -17 256 -11 1 -31 0 -45 -3z"></path>
-                                <path id="pdRLEUHmh" d="M11790 3918 c0 -24 -2 -81 -5 -128 -3 -47 -7 -137 -10 -202 l-6 -116 273 -4 c150 -2 274 -3 276 -2 6 3 9 303 3 313 -13 20 -296 121 -451 161 -25 6 -53 13 -62 16 -15 5 -18 -1 -18 -38z"></path>
-                                <path id="pPrstFAc4" d="M9140 3642 c-221 -111 -280 -148 -280 -173 0 -16 7 -19 55 -19 30 0 55 5 55 10 0 6 55 10 145 10 l146 0 6 -30 c4 -25 10 -30 34 -30 l29 0 0 160 c0 88 -4 160 -8 160 -4 0 -87 -40 -182 -88z"></path>
-                                <path id="pK5uxgAYu" d="M1896 3503 c-14 -20 -23 -40 -20 -45 3 -4 32 -8 65 -8 58 0 59 0 59 28 0 23 -7 32 -35 45 -20 9 -38 17 -40 17 -2 0 -15 -17 -29 -37z"></path>
-                                <path id="pgYv7cdcs" d="M8047 3490 c-20 -27 -37 -52 -37 -55 0 -3 16 -5 35 -5 19 0 35 5 35 10 0 6 20 8 55 4 52 -6 85 4 85 26 0 6 -122 70 -133 70 -2 0 -19 -22 -40 -50z"></path>
-                            </g>
-                        </g>
-                        <g id="l508nUgNedpJANehXsqkQoI" fill="rgb(17,62,112)" style="transform: none;">
-                            <g style="transform: none;">
-                                <path id="pGcw3GyJH" d="M302 2290 c-41 -17 -46 -54 -23 -175 11 -60 23 -127 27 -147 4 -25 18 -48 40 -68 l35 -30 534 0 534 0 25 -22 c30 -27 50 -118 32 -142 -9 -13 -79 -16 -436 -18 -467 -4 -461 -4 -556 -69 -48 -33 -103
-                                    -109 -124 -172 -26 -80 -3 -302 45 -437 53 -151 223 -296 383 -329 72 -15 1205 -15 1233 0 36 19 38 47 14 191 -25 145 -31 162 -65 193 -21 19 -41 20 -556 25 -459 4 -535 7 -548 20 -15 15 -36 100 -36 145 0 13 8 26 18
-                                    30 9 4 200 9 424 10 452 4 475 7 558 68 77 57 123 140 136 245 7 57 -25 257 -56 347 -54 160 -225 302 -404 336 -63 12 -1204 11 -1234 -1z"></path>
-                                <path id="p16k2ldYmR" d="M2125 2275 c-14 -13 -25 -32 -25 -42 0 -15 75 -436 171 -963 41 -223 79 -437 86 -480 9 -52 30 -88 63 -105 23 -12 68 -15 213 -15 183 0 184 0 207 25 28 30 28 27 -34 365 -20 107 -34 201 -31 207 3
-                                    10 73 13 304 13 276 0 301 -1 309 -17 5 -10 28 -126 52 -258 23 -132 46 -253 52 -269 23 -58 53 -66 259 -66 181 0 186 1 207 23 12 13 22 34 22 47 0 21 -78 464 -160 910 -10 58 -29 159 -41 225 -50 277 -69 368 -81 383 -29
-                                    35 -73 42 -253 42 -173 0 -176 0 -200 -25 -30 -29 -30 -35 -5 -169 11 -58 29 -154 40 -212 31 -165 35 -214 19 -214 -120 -5 -594 1 -600 7 -5 5 -29 123 -54 263 -25 140 -52 269 -59 286 -25 55 -61 64 -260 64 -174 0 -177 0
-                                    -201 -25z"></path>
-                                <path id="pdmShTgg" d="M4293 2289 c-109 -21 -194 -85 -242 -180 -39 -78 -47 -159 -27 -269 100 -559 96 -536 151 -845 62 -351 43 -330 302 -330 185 0 185 0 205 25 16 20 19 33 14 75 -7 49 -142 805 -171 956 -21 106 -20 128 8
-                                138 23 9 646 6 683 -3 25 -7 39 -38 54 -126 6 -36 19 -112 30 -170 20 -115 113 -628 135 -754 24 -134 44 -143 282 -142 234 2 233 1 194 208 -11 57 -45 245 -76 418 -122 680 -119 668 -180 765 -42 67 -134 149 -208 186 -109 55
-                                -146 59 -652 58 -253 -1 -479 -5 -502 -10z"></path>
-                                <path id="pLsYG7Sa5" d="M6387 2280 c-32 -25 -34 -55 -13 -163 8 -40 40 -214 71 -387 31 -173 62 -349 70 -390 34 -181 41 -230 34 -242 -6 -10 -63 -13 -248 -13 -314 0 -298 13 -261 -209 24 -145 30 -160 72 -186 32 -19 51 -20 770
-                                    -20 405 0 744 3 753 6 8 4 22 18 29 33 12 23 11 44 -10 166 -14 77 -31 150 -39 162 -29 44 -48 47 -297 47 -197 1 -240 4 -252 16 -8 9 -27 88 -45 185 -17 94 -51 285 -76 425 -44 246 -80 447 -91 501 -3 14 -19 39 -35 55 l-30
-                                    29 -188 3 c-178 3 -188 2 -214 -18z"></path>
-                                <path id="pHESU5FJQ" d="M8025 2275 c-14 -13 -25 -32 -25 -42 0 -10 14 -92 30 -183 32 -173 50 -270 125 -690 40 -223 43 -256 30 -266 -10 -7 -87 -10 -231 -9 -119 2 -228 -1 -243 -4 -49 -13 -54 -45 -31 -183 27 -162 36 -186 74
-                                    -209 30 -18 59 -19 777 -19 l746 0 23 25 c23 25 24 27 11 103 -31 188 -41 226 -72 257 l-29 30 -245 0 c-176 0 -247 3 -256 12 -12 12 -20 50 -138 713 -39 217 -78 410 -86 428 -25 54 -59 62 -260 62 -173 0 -176 0 -200 -25z"></path>
-                                <path id="p18TK3lFD6" d="M9233 2288 c-39 -19 -42 -52 -17 -193 35 -193 63 -347 84 -465 11 -58 51 -283 90 -500 l71 -395 34 -32 35 -33 184 0 c101 0 192 3 201 6 8 4 22 18 29 33 13 24 5 79 -80 546 -51 286 -96 534 -99 552 -11
-                                    64 -18 63 425 63 501 0 462 -21 415 231 -23 119 -29 137 -55 164 l-30 30 -633 2 c-433 1 -639 -1 -654 -9z"></path>
-                                <path id="pRyFfSIv0" d="M10755 2278 c-26 -20 -27 -25 -22 -82 3 -34 15 -108 26 -166 11 -58 29 -156 41 -217 11 -62 29 -161 40 -220 10 -60 33 -187 50 -283 17 -96 37 -206 45 -245 7 -38 23 -128 36 -199 25 -142 43 -176 102 -195
-                                    22 -7 257 -10 723 -8 773 2 730 -2 719 71 -31 199 -57 312 -75 331 -20 19 -33 20 -511 21 -408 0 -492 2 -499 14 -9 15 -30 124 -30 158 0 14 6 22 18 22 9 0 186 0 394 0 331 0 378 1 392 15 21 21 21 25 -10 195 -19 107 -32 151
-                                    -47 168 l-20 22 -399 0 -398 0 -9 23 c-12 29 -34 148 -28 153 2 3 219 5 481 6 327 1 483 5 499 12 12 6 23 21 25 32 2 11 -11 97 -27 190 -25 138 -35 172 -52 187 -20 16 -70 17 -729 17 l-707 0 -28 -22z"></path>
-                            </g>
-                        </g>
-                        <g id="l4u9rZjXaUTYFSdeyaxkxxB" fill="rgb(0,152,185)" style="transform: none;">
-                            <g style="transform: none;">
-                                <path id="pubGcUf6p" d="M1172 5089 c-301 -52 -553 -194 -725 -409 -66 -83 -155 -246 -161 -297 -7 -48 -18 -83 -27 -83 -5 0 -6 -6 -4 -13 4 -9 70 -12 285 -12 154 0 280 2 280 5 0 4 -5 11 -11 17 -8 8 -8 13 0 17 6 4 11 2 11 -3
-                                    0 -6 9 -11 20 -11 22 0 27 15 8 23 -8 4 -7 6 3 6 22 1 34 32 17 43 -10 6 -9 8 3 8 19 0 53 46 44 60 -3 6 -2 10 4 10 5 0 36 28 69 63 182 188 453 235 692 120 59 -29 94 -55 163 -126 l88 -89 32 13 c18 7 121 57 230 111 109
-                                    54 202 98 207 98 23 0 5 25 -82 114 -183 186 -434 307 -713 344 -113 15 -319 11 -433 -9z"></path>
-                                <path id="p13iZ2Bkyl" d="M7330 5090 c-430 -77 -772 -355 -894 -727 -31 -93 -45 -88 269 -88 255 0 275 1 275 18 0 10 8 17 19 17 13 0 29 20 52 67 50 98 162 208 262 256 43 21 107 44 142 52 125 26 288 2 404 -59 60 -32 163 -123
-                                    196 -173 15 -24 28 -43 30 -43 2 0 108 52 235 115 127 63 235 115 240 115 22 0 6 24 -66 100 -171 179 -375 288 -649 346 -122 25 -382 28 -515 4z">
-                                </path>
-                                <path id="p3d29JiJh" d="M9387 5099 c-74 -12 -184 -47 -252 -81 -198 -100 -332 -257 -371 -437 -15 -73 -18 -321 -3 -321 5 0 9 5 9 10 0 6 93 10 260 10 l261 0 6 -30 c3 -16 12 -30 19 -30 11 0 14 30 14 153 0 127 4 159 19 192 38
-                                    83 114 127 216 126 68 0 117 -17 165 -58 56 -47 70 -91 70 -230 l0 -122 113 -3 c61 -2 117 0 123 4 6 4 13 5 16 3 3 -3 47 3 98 14 50 11 95 20 98 19 4 -2 35 4 70 11 70 15 65 6 63 131 -3 158 -57 287 -171 401 -41 42 -106 94 -145
-                                    117 -81 48 -224 98 -334 117 -82 14 -267 17 -344 4z">
-                                </path>
-                                <path id="p11rQRugiI" d="M2450 5068 c0 -7 14 -65 31 -128 16 -63 50 -191 74 -285 25 -93 51 -195 60 -225 8 -30 17 -63 20 -73 3 -9 7 -27 10 -39 2 -12 8 -25 13 -30 5 -5 322 -9 705 -8 391 0 697 -4 697 -8 0 -5 11 -7 25 -4 24 4
-                                    36 22 15 22 -5 0 -10 5 -10 10 0 6 7 10 15 10 8 0 15 5 15 10 0 6 -4 10 -10 10 -18 0 -11 20 8 21 10 0 12 3 5 6 -18 7 -16 23 2 23 8 0 15 5 15 10 0 6 -4 10 -10 10 -5 0 -10 5 -10 10 0 6 7 10 15 10 8 0 18 16 24 38 5 20 44 166
-                                    85 324 42 158 76 290 76 293 0 3 -122 5 -270 5 -208 0 -271 -3 -274 -12 -2 -7 -24 -105 -49 -218 l-44 -205 -300 -3 -300 -2 -48 220 -48 220 -268 0 c-209 0 -269 -3 -269 -12z"></path>
-                                <path id="pn45jJa4P" d="M4464 5058 c3 -13 6 -203 7 -423 1 -220 3 -393 6 -384 6 26 32 29 276 29 195 0 227 -2 227 -15 0 -8 8 -15 18 -14 10 0 12 3 5 6 -18 7 -16 23 2 23 12 0 15 16 17 73 1 39 2 97 3 127 1 30 5 152 10 270 4 118
-                                    8 240 9 270 l0 55 -293 3 -293 2 6 -22z"></path>
-                                <path id="p1pKMZaM9" d="M5607 5058 c-8 -13 -56 -104 -107 -203 -51 -99 -137 -265 -191 -370 -55 -104 -99 -198 -99 -207 0 -10 7 -18 15 -18 8 0 15 5 15 10 0 7 160 10 460 10 402 0 460 -2 460 -15 0 -8 9 -15 20 -15 20 0 20 7 20
-                                    415 l0 415 -290 0 c-289 0 -290 0 -303 -22z"></path>
-                                <path id="pmj2mTRK8" d="M10599 5078 c0 -2 -1 -158 -2 -348 l-1 -344 24 -6 c14 -3 45 -2 70 2 25 5 137 11 250 14 112 3 205 6 207 7 2 3 10 181 19 445 3 105 7 200 8 210 1 16 -20 17 -286 20 -159 1 -288 1 -289 0z"></path>
-                                <path id="pNCu0McRD" d="M11677 4948 c-37 -73 -115 -223 -173 -333 -57 -110 -107 -210 -110 -222 -6 -24 -9 -23 111 -48 44 -10 128 -35 186 -56 112 -41 141 -48 99 -24 -22 13 7 14 256 12 l280 -2 0 400 -1 400 -290 3 -290 2 -68 -132z"></path>
-                            </g>
-                        </g>
-                        <g id="l4I7k9X4IZxKMtQeHLeaYfB" fill="rgb(28,190,197)" style="transform: none;">
-                            <g style="transform: none;">
-                                <path id="pK9V4E6Wg" d="M11900 3920 c0 -5 7 -10 15 -10 8 0 15 5 15 10 0 6 -7 10 -15 10 -8 0 -15 -4 -15 -10z"></path>
-                                <path id="p10H1jnNz7" d="M14916 3844 c-9 -23 -8 -24 14 -24 23 0 26 13 6 29 -11 9 -15 8 -20 -5z"></path>
-                                <path id="pE4qw9tPQ" d="M12197 3824 c3 -8 11 -14 19 -14 21 0 17 17 -5 23 -14 3 -18 1 -14 -9z"></path>
-                                <path id="p17Pptp4Ax" d="M15086 3715 c-3 -9 0 -15 9 -15 16 0 20 16 6 24 -5 3 -11 -1 -15 -9z"></path>
-                                <path id="p81urhJXi" d="M7013 3623 c-18 -7 -16 -23 2 -23 8 0 15 7 15 15 0 8 -1 15 -2 14 -2 0 -9 -3 -15 -6z"></path>
-                                <path id="pKyITHiLo" d="M9046 3595 c-10 -8 -24 -16 -30 -18 -6 -2 -8 -7 -4 -11 9 -10 44 10 52 29 7 18 6 18 -18 0z"></path>
-                                <path id="p1FnHr31Y1" d="M3303 3593 c-18 -7 -16 -23 2 -23 8 0 15 7 15 15 0 8 -1 15 -2 14 -2 0 -9 -3 -15 -6z"></path>
-                                <path id="p1HBsXYJvi" d="M8981 3561 c-10 -6 -10 -10 -1 -16 13 -8 24 -1 19 14 -3 6 -10 7 -18 2z"></path>
-                                <path id="pvKZ0tTsT" d="M3313 3543 c-18 -7 -16 -23 2 -23 8 0 15 7 15 15 0 8 -1 15 -2 14 -2 0 -9 -3 -15 -6z"></path>
-                                <path id="pVouaAyP6" d="M8853 3488 l-103 -61 0 -273 0 -274 290 0 290 0 0 279 c0 258 -1 280 -17 284 -17 4 -17 5 0 6 24 1 22 31 -3 31 -11 0 -20 5 -20 10 0 16 -347 13 -353 -2 -3 -10 -7 -10 -17 -1 -9 8 -8 12 8 17 11 4 22
-                                    16 25 26 3 11 4 20 4 19 -1 -1 -48 -28 -104 -61z"></path>
-                                <path id="pZvUNN4WV" d="M1910 3525 c-10 -13 -9 -15 8 -15 12 0 24 -5 27 -10 4 -6 11 -8 16 -5 5 4 9 2 9 -3 0 -10 -56 -9 -67 1 -3 4 -26 -16 -51 -44 -89 -99 -216 -163 -374 -189 -193 -30 -418 70 -544 244 -19 26 -22 27 -36
-                                    12 -15 -14 -53 -16 -297 -16 -181 0 -281 4 -281 10 0 6 -5 10 -10 10 -15 0 14 -63 65 -145 155 -247 390 -411 703 -491 126 -32 193 -39 357 -38 352 2 663 127 887 356 49 49 88 92 88 96 0 5 -442 227 -479 240 -4 1 -14 -4
-                                    -21 -13z"></path>
-                                <path id="p1BLCYxCHT" d="M8090 3526 c0 -13 20 -26 41 -26 18 0 8 17 -16 28 -20 9 -25 9 -25 -2z"></path>
-                                <path id="pdwCUzNtX" d="M5356 3515 c-5 -13 -64 -15 -446 -15 l-440 0 0 -72 c0 -40 -1 -180 -1 -311 l0 -238 288 1 c158 0 291 4 294 8 4 4 32 55 63 115 63 121 143 273 223 425 37 71 50 102 40 102 -8 0 -17 -7 -21 -15z"></path>
-                                <path id="pfofx4zgs" d="M11766 3340 c-5 -107 -9 -220 -11 -250 -1 -30 -4 -90 -6 -133 l-4 -78 284 0 c156 0 286 3 290 6 3 3 6 141 6 305 l0 299 -29 5 c-16 3 -138 6 -272 6 -223 0 -243 1 -246 18 -2 9 -8 -71 -12 -178z"></path>
-                                <path id="p19dClRC5H" d="M3880 3510 c0 -6 -76 -10 -209 -10 -138 0 -212 -4 -216 -11 -4 -6 -13 -8 -21 -5 -9 3 -14 -1 -14 -12 -1 -9 -9 -51 -19 -92 l-17 -75 -24 100 -23 100 -239 -3 c-220 -2 -239 -4 -234 -20 3 -9 24 -89 47
-                                    -177 23 -88 58 -220 78 -293 l36 -132 354 -1 c195 0 357 4 361 8 4 4 29 89 55 188 25 99 59 227 75 285 43 161 42 160 25 160 -8 0 -15 -4 -15 -10z"></path>
-                                <path id="pmlH9Wmkn" d="M6496 3448 c52 -103 87 -152 173 -241 175 -181 396 -295 661 -343 131 -23 375 -24 495 -1 275 54 514 179 679 358 36 39 66 74 66 78 0 3 -86 48 -191 99 -145 72 -193 91 -203 83 -10 -8 -21 -8 -42 -1
-                                    -30 12 -84 4 -84 -11 0 -6 -4 -8 -8 -5 -5 3 -24 -11 -43 -30 -38 -40 -126 -102 -180 -127 -147 -68 -356 -64 -504 11 -62 31 -159 105 -186 142 -15 19 -28 26 -42 24 -12 -2 -16 -2 -9 2 6 3 12 12 12 20 0 10 -6 11 -26 4 -35
-                                    -14 -584 -13 -584 0 0 6 -5 10 -10 10 -6 0 6 -33 26 -72z"></path>
-                                <path id="p116DoyRMU" d="M9805 3507 c-3 -7 -4 -151 -3 -320 l3 -308 283 1 c155 0 285 0 290 0 5 0 7 326 2 583 0 9 -7 17 -15 17 -8 0 -15 5 -15 10 0 6 -97 10 -271 10 -177 0 -268 3 -264 10 3 6 4 10 0 10 -3 0 -8 -6 -10 -13z"></path>
-                                <path id="p72LxUfYc" d="M11485 3510 c-4 -6 -162 -10 -440 -10 l-435 0 -5 -22 c-8 -37 -11 -598 -2 -598 4 0 134 0 288 0 259 -1 283 1 294 17 7 10 40 72 75 138 145 279 185 353 216 412 19 34 34 65 34 68 0 9 -19 5 -25 -5z"></path>
-                                <path id="p74PdYQw9" d="M5660 3483 c0 -15 -2 -16 -10 -3 -7 10 -10 -6 -10 -55 0 -38 -2 -97 -4 -130 -2 -33 -7 -141 -11 -240 l-7 -180 289 2 288 2 3 288 2 288 -22 10 c-13 6 -22 16 -20 23 1 9 -57 12 -248 12 -231 0 -250 -1
-                                    -250 -17z"></path>
-                                <path id="pFuvnIaKk" d="M15447 3444 c-13 -13 -7 -24 14 -24 11 0 19 5 17 12 -5 14 -22 21 -31 12z"></path>
-                                <path id="pI50woTck" d="M15496 3404 c-9 -23 -8 -24 14 -24 23 0 26 13 6 29 -11 9 -15 8 -20 -5z"></path>
-                                <path id="p1F72ogg05" d="M15587 3333 c-9 -9 12 -33 29 -33 17 0 18 12 2 28 -14 14 -22 15 -31 5z"></path>
-                                <path id="ppR0DZu21" d="M15707 3234 c-13 -13 -7 -24 14 -24 11 0 19 5 17 12 -5 14 -22 21 -31 12z"></path>
-                                <path id="pCifgj7Bz" d="M15765 3180 c-8 -13 19 -40 39 -40 21 0 20 13 -2 33 -21 20 -28 21 -37 7z"></path>
-                                <path id="p18VciaMVw" d="M15864 3097 c-8 -8 -1 -21 24 -44 33 -31 62 -43 62 -25 0 4 -17 24 -37 44 -28 27 -41 33 -49 25z"></path>
-                                <path id="pG56twWy3" d="M15952 3013 c-10 -4 -10 -8 -1 -19 13 -15 39 -19 39 -5 0 14 -24 29 -38 24z"></path>
-                                <path id="paEqgZzaO" d="M16052 2911 c-10 -6 -7 -15 13 -39 28 -33 55 -42 55 -19 0 22 -54 67 -68 58z"></path>
-                                <path id="pHpHiRwEj" d="M14410 2805 c0 -8 -4 -15 -10 -15 -14 0 -12 -27 3 -34 10 -5 10 -7 0 -12 -18 -8 -16 -24 2 -24 11 0 15 12 15 50 0 28 -2 50 -5 50 -3 0 -5 -7 -5 -15z"></path>
-                                <path id="p43dfFE6c" d="M16158 2793 c-16 -4 -16 -6 -4 -19 19 -18 36 -18 36 0 0 18 -10 24 -32 19z"></path>
-                                <path id="pxN72iuHh" d="M16203 2743 c-16 -6 -5 -33 13 -33 8 0 14 6 14 14 0 18 -11 25 -27 19z"></path>
-                                <path id="pAjpnALIm" d="M16243 2692 c-9 -6 -7 -16 7 -40 19 -32 50 -44 50 -19 -1 22 -44 67 -57 59z"></path>
-                                <path id="p440SLDMU" d="M14263 2613 c9 -2 25 -2 35 0 9 3 1 5 -18 5 -19 0 -27 -2 -17 -5z"></path>
-                                <path id="p1Dx1jxgs0" d="M16321 2580 c-16 -9 -6 -30 15 -30 15 0 20 25 6 34 -4 2 -14 1 -21 -4z"></path>
-                                <path id="pa1C0bZWR" d="M16380 2490 c-12 -8 -11 -10 5 -11 11 0 14 -3 8 -6 -18 -7 -16 -23 2 -23 16 0 19 18 7 37 -5 8 -13 9 -22 3z"></path>
-                                <path id="pp7paSaYs" d="M16432 2401 c-10 -6 -7 -20 14 -64 16 -32 34 -57 41 -57 19 0 15 19 -15 77 -19 37 -31 50 -40 44z"></path>
-                                <path id="p7zFWp7hx" d="M14010 2290 c-12 -8 -12 -10 3 -16 21 -8 35 2 21 16 -5 5 -15 6 -24 0z"></path>
-                                <path id="pNZ7LrnV6" d="M16500 2250 c-12 -8 -11 -10 5 -11 11 0 14 -3 8 -6 -18 -7 -16 -23 2 -23 16 0 19 18 7 37 -5 8 -13 9 -22 3z"></path>
-                                <path id="ppi8jB6d1" d="M16533 2183 c-19 -7 -16 -23 5 -23 13 0 14 -2 4 -9 -18 -11 -5 -61 17 -61 14 0 14 -2 1 -10 -13 -8 -12 -10 3 -10 21 0 21 11 -1 71 -10 28 -22 44 -29 42z"></path>
-                                <path id="p7vjjaC85" d="M14305 2040 c-3 -6 1 -13 10 -16 19 -8 30 0 20 15 -8 14 -22 14 -30 1z"></path>
-                                <path id="pwT9O6JKL" d="M16583 2005 c-17 -19 -16 -25 2 -25 8 0 15 9 15 20 0 23 -1 24 -17 5z"></path>
-                                <path id="p1zir61Mk" d="M16593 1955 c-17 -19 -16 -25 2 -25 8 0 15 9 15 20 0 23 -1 24 -17 5z"></path>
-                                <path id="pxJFq4WwK" d="M14425 1940 c-3 -6 1 -13 10 -16 19 -8 30 0 20 15 -8 14 -22 14 -30 1z"></path>
-                                <path id="pFRTafuZm" d="M16610 1895 c0 -8 -4 -15 -10 -15 -5 0 -10 -4 -10 -10 0 -5 7 -10 15 -10 9 0 15 9 15 25 0 14 -2 25 -5 25 -3 0 -5 -7 -5 -15z"></path>
-                                <path id="pwjoIeIXL" d="M14622 1774 c-11 -12 -9 -16 13 -26 33 -15 44 -3 19 22 -16 16 -21 17 -32 4z"></path>
-                                <path id="pe4Xod1zo" d="M13275 1731 c-6 -11 33 -26 43 -16 4 3 0 10 -8 15 -19 12 -27 12 -35 1z"></path>
-                                <path id="ps3cFIJoQ" d="M13370 1710 c0 -5 9 -10 20 -10 11 0 20 5 20 10 0 6 -9 10 -20 10 -11 0 -20 -4 -20 -10z"></path>
-                                <path id="pRJFARq3M" d="M13510 1700 c0 -5 7 -10 15 -10 8 0 15 5 15 10 0 6 -7 10 -15 10 -8 0 -15 -4 -15 -10z"></path>
-                                <path id="pgkNJAVg3" d="M13640 1685 c0 -9 6 -12 15 -9 8 4 15 10 15 15 0 5 -7 9 -15 9 -8 0 -15 -7 -15 -15z"></path>
-                                <path id="p136N2oHFp" d="M13770 1682 c0 -14 11 -21 26 -15 21 8 17 23 -6 23 -11 0 -20 -4 -20 -8z"></path>
-                                <path id="pBobONzyH" d="M14735 1680 c-9 -15 4 -30 26 -30 22 0 24 11 7 28 -15 15 -25 15 -33 2z"></path>
-                                <path id="p1BNHBbIkM" d="M13900 1670 c0 -5 7 -10 15 -10 8 0 15 5 15 10 0 6 -7 10 -15 10 -8 0 -15 -4 -15 -10z"></path>
-                                <path id="pRqAMWysY" d="M14022 1658 c3 -8 22 -13 48 -13 26 0 45 5 47 13 3 8 -10 12 -47 12 -37 0 -50 -4 -48 -12z"></path>
-                                <path id="pXPKqFVi1" d="M14160 1650 c0 -5 9 -10 20 -10 11 0 20 5 20 10 0 6 -9 10 -20 10 -11 0 -20 -4 -20 -10z"></path>
-                                <path id="p3KwNtCBu" d="M14300 1640 c0 -5 7 -10 15 -10 8 0 15 5 15 10 0 6 -7 10 -15 10 -8 0 -15 -4 -15 -10z"></path>
-                                <path id="p8bszrWDT" d="M14345 1639 c-4 -6 -4 -13 -1 -16 8 -8 36 5 36 17 0 13 -27 13 -35 -1z"></path>
-                                <path id="pvJm8SyV8" d="M14443 1643 c-18 -7 -16 -23 2 -23 8 0 15 7 15 15 0 8 -1 15 -2 14 -2 0 -9 -3 -15 -6z"></path>
-                                <path id="pWGYjvZih" d="M14793 1633 c-17 -6 9 -33 31 -33 19 0 21 11 4 28 -13 13 -16 13 -35 5z"></path>
-                                <path id="peAdddLkn" d="M14875 1560 c-19 -7 -19 -7 3 -14 26 -9 41 -1 26 13 -5 5 -18 5 -29 1z"></path>
-                                <path id="p13Demvlc1" d="M16590 1531 c0 -5 6 -11 13 -14 8 -3 14 1 14 9 0 8 -6 14 -14 14 -7 0 -13 -4 -13 -9z"></path>
-                                <path id="p3j8MfIEe" d="M14924 1519 c-7 -12 12 -29 34 -29 15 0 16 12 0 28 -15 15 -25 15 -34 1z"></path>
-                                <path id="p13F6D4Qjr" d="M15434 1454 c-6 -19 -8 -34 -3 -34 8 0 24 59 17 65 -2 2 -8 -12 -14 -31z"></path>
-                                <path id="peXDfo181" d="M14984 1469 c-7 -12 12 -29 34 -29 15 0 16 12 0 28 -15 15 -25 15 -34 1z"></path>
-                                <path id="pWT7mVqJg" d="M16580 1450 c0 -5 7 -10 15 -10 8 0 15 5 15 10 0 6 -7 10 -15 10 -8 0 -15 -4 -15 -10z"></path>
-                                <path id="p1H0lIvAgC" d="M15044 1419 c-7 -12 12 -29 34 -29 15 0 16 12 0 28 -15 15 -25 15 -34 1z"></path>
-                                <path id="p1FQLZycAP" d="M15107 1374 c-11 -11 5 -34 24 -34 22 0 24 11 7 28 -13 13 -22 15 -31 6z"></path>
-                                <path id="p11aMQrpzE" d="M16560 1355 c0 -8 7 -15 15 -15 8 0 15 7 15 15 0 8 -7 15 -15 15 -8 0 -15 -7 -15 -15z"></path>
-                                <path id="p16WNguDfT" d="M15311 1331 c-30 -8 -40 -31 -14 -31 18 1 53 22 53 34 0 7 -6 7 -39 -3z"></path>
-                                <path id="p1DUMFJDYL" d="M15180 1321 c0 -11 26 -22 34 -14 12 12 5 23 -14 23 -11 0 -20 -4 -20 -9z"></path>
-                                <path id="p1AdGMXF2B" d="M16546 1304 c-9 -24 -7 -34 8 -34 7 0 16 11 18 25 6 28 -16 36 -26 9z"></path>
-                                <path id="p1AqG5Srrk" d="M16520 1220 c0 -5 7 -10 15 -10 8 0 15 5 15 10 0 6 -7 10 -15 10 -8 0 -15 -4 -15 -10z"></path>
-                                <path id="pHGL79lOR" d="M16508 1159 c-19 -11 -24 -29 -8 -29 5 0 14 9 20 20 12 23 12 23 -12 9z"></path>
-                                <path id="p10Hy9WpP8" d="M16466 1084 c-8 -21 -8 -24 4 -24 5 0 14 9 20 20 8 16 8 20 -4 20 -7 0 -17 -7 -20 -16z"></path>
-                                <path id="p15m3j2P74" d="M16436 1024 c-8 -21 -8 -24 4 -24 5 0 14 9 20 20 8 16 8 20 -4 20 -7 0 -17 -7 -20 -16z"></path>
-                                <path id="pkQ6ydreP" d="M16400 961 c0 -17 18 -21 24 -6 3 9 0 15 -9 15 -8 0 -15 -4 -15 -9z"></path>
-                                <path id="pz0m32GJN" d="M16312 835 c-10 -12 -10 -15 1 -15 8 0 20 7 27 15 17 21 -10 20 -28 0z"></path>
-                                <path id="peCHIJKXW" d="M16277 789 c-28 -32 -10 -37 21 -6 18 19 22 27 11 27 -8 0 -23 -9 -32 -21z"></path>
-                                <path id="p1GxQZaHxZ" d="M16110 625 c-10 -12 -10 -15 3 -15 8 0 20 7 27 15 10 12 10 15 -3 15 -8 0 -20 -7 -27 -15z"></path>
-                                <path id="p18wSPa1h9" d="M16066 585 c-16 -12 -17 -15 -4 -15 8 0 21 7 28 15 16 19 1 19 -24 0z"></path>
-                                <path id="pp4BqCnn6" d="M15680 360 c-13 -9 -13 -10 0 -10 8 0 22 5 30 10 13 9 13 10 0 10 -8 0 -22 -5 -30 -10z"></path>
-                                <path id="p7f4dfrxM" d="M15395 260 c-13 -5 -14 -9 -5 -9 8 0 24 4 35 9 13 5 14 9 5 9 -8 0 -24 -4 -35 -9z"></path>
-                                <path id="pgdLFR8hl" d="M14958 183 c12 -2 30 -2 40 0 9 3 -1 5 -23 4 -22 0 -30 -2 -17 -4z"></path>
-                            </g>
-                        </g>
-                    </svg>
-                </div>
-                <div class="header-right">
-                    <div class="line">
-                        <span class="text-label">Contacto</span>
-                        <span> </span> 
-                        <span class="text-value">/</span>
-                        <span> </span> 
-                        <span class="text-label">Contact</span>
-                    </div>
-                <div class="line empty"></div>
-                <div class="line">
-                    <span class="text-value">+52 998 6090 290</span>
-                    <span> </span> 
-                    <span class="text-value icon">
-                        <div class="whatsapp-icon icon-box"></div>
-                    </span>
-                    </div>
-                <div class="line">
-                    <span class="text-value">contacto@shuttle2cancun.com</span>
-                    <span> </span>
-                    <span class="text-value icon email-icon">
-                        <div class="email-icon icon-box"></div>
-                    </span>
-                </div>
-                </div>
-            </header>
+    </head>
+    <body style="font-family:Arial,sans-serif;min-width:640px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin: 0 auto;">
+        <table border="0" cellpadding="0px" cellspacing="0" width="100%" bgcolor="#ffffff" style="border: none; max-width:800px;width:800px; border-collapse: collapse; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;margin: 0 auto;">
+            <tr>
+                <td align="center">
+                    <!-- Contenedor principal -->
+                    <table border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="border: none; width:100%;border-collapse: collapse !important;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
+                        <!-- Encabezado de Contacto -->
+                        <tr>
+                            <td style="width:15px;">&nbsp;</td>
+                            <td style="width:45%;">
+                                <img src="https://shuttle-cancun.netlify.app/png/logo.png" style="width:50%;"/>
+                            </td>
+                            <td align="right" style="padding:20px; font-family: Arial, sans-serif; font-size:12px; color:#A7A7A7; width:45%;">
+                                Contacto / <italic>Contact</italic>
+                                <br> 
+                                <div>+52 998 6090 290  <img src="https://shuttle-cancun.netlify.app/png/email.png" style="width: 12px;height:12px;"></div>
+                                <br>
+                                <div>
+                                    contacto@shuttle2cancun.com <img src="https://shuttle-cancun.netlify.app/png/whatsapp.png" style="width:12px;height:12px;">
+                                </div>
+                            </td>
+                            <td style="width:15px;">&nbsp;</td>
+                        </tr>
+                    </table>
+                    
+                    <!-- Número de Reservación -->
+                    <table border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="border: none; width:100%;border-collapse: collapse !important;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px;">
+                        <tr style="border-top:3px solid #EF9E00;border-bottom:3px solid #EF9E00; color: #113E70; text-transform:uppercase;font-weight:700; font-size:20px;text-align:center;" bgcolor="#DBDBDB">
+                            <td style="width:15px;">&nbsp;</td>
+                            <td style="padding: 10px 0 10px 0;">
+                                Reservacion / <italic>Reservation</italic>
+                            </td> 
+                            <td style="padding: 10px 0 10px 0;">
+                                {{section.reservation-number}}
+                            </td>
+                            <td style="width:15px;">&nbsp;</td>
+                        </tr>
+                    </table>
+                    
+                    <!-- Saludo -->
+                    <table border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="border: none; width:100%;border-collapse: collapse !important;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:20px; color:#a7a7a7;">
+                        <tr>
+                            <td style="width:15px;">&nbsp;</td>
+                            <td>
+                                <p style="margin-bottom: 1vh;"><strong>Apreciable cliente / <i>Dear customer</i></strong></p>
+                                <p style="margin-bottom: 1vh;text-align:justify">A continuaci&oacute;n est&aacute; un resumen de tu reservaci&oacute;n. Para cualquier duda, cambio o cancelaci&oacute;n puede contactarnos en +52 998 6090 290 o mediante el correo electr&oacute;nico <a href="mailto:contacto@shuttle2cancun.com">contacto&#64;shuttle2cancun.com</a>.</p>
+                                <p style="margin-bottom: 1vh;text-align:justify"><i>Below is a summary of your reservation. For any questions, changes or cancellations you can contact us at +52 998 6090 290 or by email <a href="mailto:contacto&#64;shuttle2cancun.com">contacto@shuttle2cancun.com</a>.</i></p>
+                            </td>
+                            <td style="width:15px;">&nbsp;</td>
+                        </tr>
+                    </table>
 
-            <section>
-                <div class="reservation-banner">
-                    <div class="banner-title">
-                        <span class="text-banner">Reservacion</span>
-                        <span> </span>
-                        <span class="text-banner">/</span>
-                        <span> </span>
-                        <span class="text-banner italic-text">Reservation</span>
-                    </div>
-                    <div class="banner-value">
-                        <span class="text-banner" data-id="section.reservation">{{section.reservation-number}}</span>
-                    </div>
-                </div>
-            </section>
+                    <!-- Reservation Details-->
+                    <table border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="border: 1.5px solid #c1c3c4; border-radius:20px; width:100%; box-shadow: 8px 8px 30px 2px #c1c3c4, inset 6px 6px 40px 1px #c1c3c4; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:20px; color:#a7a7a7; border-collapse: separate; border-spacing:15px;">
+                        <tr>
+                            <td>
+                                <table border="0" cellpadding="0" cellspacing="0" bgcolor="#808080" style="border-top: 5px solid #808080;border-bottom: 5px solid #808080; border-radius:3px; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:20px; text-transform:uppercase; color:#ffffff; font-weight:800;">
+                                    <tr align="center">
+                                        <td>
+                                            Detalles de la reserva / <i>Reservation summary</i>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td>
+                                <table border="0" cellpadding="0" cellspacing="0" bgcolor="#DBDBDB" style="border: 1px solid #808080;border-radius:2px; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:17px; color:#808080; font-weight:700;">
+                                    <tr>
+                                        <td>
+                                            <div style="padding:5px;">Fecha de recogida / <i>Pickup Date:</i></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
 
-            <main class="intro">
-                <div class="main-content">
-                    <p>
-                        <span class="text-main-title">Apreciable cliente</span>
-                        <span> </span>
-                        <span class="text-main">/</span>
-                        <span> </span>
-                        <span class="text-main-title italic-text">Dear customer</span>
-                    </p>
-                    <p class="text-main">
-                        A continuaci&oacute;n est&aacute; un resumen de tu reservaci&oacute;n. Para cualquier duda, cambio o cancelaci&oacute;n puede contactarnos en +52 998 6090 290 o mediante el correo electr&oacute;nico <a href="mailto:contacto@shuttle2cancun.com">contacto&#64;shuttle2cancun.com</a>.
-                    </p>
-                    <p class="text-main italic-text">
-                        Below is a summary of your reservation. For any questions, changes or cancellations you can contact us at +52 998 6090 290 or by email <a href="mailto:contacto&#64;shuttle2cancun.com">contacto@shuttle2cancun.com</a>.
-                    </p>
-                </div>
-            </main>
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left">
+                                            <img src="https://shuttle-cancun.netlify.app/png/calendar.png" style="width: 16px;height:16px;">
+                                            &nbsp;Día / <i>Day</i>
+                                        </td>
+                                        <td align="right" style="font-weight: 700;">
+                                            {{pickup-date.day}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
 
-            <main class="details">
-                <div class="reservation-details-content">
-                    <div class="details-title">
-                        <span class="text-detail-title">Detalles de la reserva</span>
-                        <span>&nbsp;</span>
-                        <span class="text-detail-title">/</span>
-                        <span>&nbsp;</span>
-                        <span class="text-detail-title italic-text">Reservation summary</span>
-                    </div>
-                    <div class="details-sub-title">
-                        <span class="text-detail-sub-title">Fecha de recogida</span>
-                        <span>&nbsp;</span>
-                        <span class="text-detail-sub-title">/</span>
-                        <span>&nbsp;</span>
-                        <span class="text-detail-sub-title italic-text">Pickup Date:</span>
-                    </div>
-                    <div class="details-row">
-                        <div class="details-row-label">
-                            <div class="detais-row-label-icon icon">
-                                <div class="calendar-icon icon-box"></div>
-                            </div>
-                            <div class="detais-row-label-text">
-                                <span>&nbsp;</span>
-                                <span class="text-detail">Día</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail">/</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail italic-text">Day</span>
-                            </div>
-                        </div>
-                        <div class="details-row-value">
-                            <span class="text-detail bold">{{pickup-date.day}}</span>
-                        </div>
-                    </div>
-                    <div class="details-row">
-                        <div class="details-row-label">
-                            <div class="detais-row-label-icon icon">
-                                <div class="clock-icon icon-box"></div>
-                            </div>
-                            <div class="detais-row-label-text">
-                                <span>&nbsp;</span>
-                                <span class="text-detail">Hora de Servicio</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail">/</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail italic">Service Hour</span>
-                            </div>
-                        </div>
-                        <div class="details-row-value">
-                            <span class="text-detail bold">{{pickup-date.time}}</span>
-                        </div>
-                    </div>
-                    <div class="details-row">
-                        <div class="details-row-label">
-                            <div class="detais-row-label-icon icon">
-                                <div class="user-icon icon-box"></div>
-                            </div>
-                            <div class="detais-row-label-text">
-                                <span>&nbsp;</span>
-                                <span class="text-detail"># Pasajeros</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail">/</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail italic"># Passengers</span>
-                            </div>
-                        </div>
-                        <div class="details-row-value">
-                            <span class="text-detail bold">{{pickup-date.total-passengers}}</span>
-                        </div>
-                    </div>
-                    <div class="details-row-location">
-                        <div class="details-row-location-label">
-                            <div class="details-row-location-label-icon icon">
-                                <div class="map-pin-icon icon-box"></div>
-                            </div>
-                            <div class="details-row-location-label-text">
-                                <span>&nbsp;</span>
-                                <span class="text-detail">Desde</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail">/</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail italic">From</span>
-                            </div>
-                        </div>
-                        <div class="details-row-location-value">
-                            <span class="text-detail bold">
-                                {{pickup-date.from}}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="details-row-location">
-                        <div class="details-row-location-label">
-                            <div class="details-row-location-label-icon icon">
-                                <div class="map-pin-icon icon-box"></div>
-                            </div>
-                            <div class="details-row-location-label-text">
-                                <span>&nbsp;</span>
-                                <span class="text-detail">Destino</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail">/</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail italic">Destination</span>
-                            </div>
-                        </div>
-                        <div class="details-row-location-value">
-                            <span class="text-detail bold">
-                                {{pickup-date.destination}}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="details-sub-title">
-                        <span class="text-detail-sub-title">Viaje de regreso</span>
-                        <span>&nbsp;</span>
-                        <span class="text-detail-sub-title">/</span>
-                        <span>&nbsp;</span>
-                        <span class="text-detail-sub-title italic">Return Trip</span>
-                    </div>
-                    <div class="details-row">
-                        <div class="details-row-label">
-                            <div class="detais-row-label-icon icon">
-                                <div class="calendar-icon icon-box"></div>
-                            </div>
-                            <div class="detais-row-label-text">
-                                <span>&nbsp;</span>
-                                <span class="text-detail">Día</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail">/</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail italic">Day</span>
-                            </div>
-                        </div>
-                        <div class="details-row-value">
-                            <span class="text-detail bold">{{return-trip.day}}</span>
-                        </div>
-                    </div>
-                    <div class="details-row">
-                        <div class="details-row-label">
-                            <div class="detais-row-label-icon icon">
-                                <div class="clock-icon icon-box"></div>
-                            </div>
-                            <div class="detais-row-label-text">
-                                <span>&nbsp;</span>
-                                <span class="text-detail">Hora de Servicio</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail">/</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail italic">Service Hour</span>
-                            </div>
-                        </div>
-                        <div class="details-row-value">
-                            <span class="text-detail bold">{{return-trip.time}}</span>
-                        </div>
-                    </div>
-                    <div class="details-row-location">
-                        <div class="details-row-location-label">
-                            <div class="details-row-location-label-icon icon">
-                                <div class="map-pin-icon icon-box"></div>
-                            </div>
-                            <div class="details-row-location-label-text">
-                                <span>&nbsp;</span>
-                                <span class="text-detail">Destino</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail">/</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail italic">Destination</span>
-                            </div>
-                        </div>
-                        <div class="details-row-location-value">
-                            <span class="text-detail bold">
-                                {{return-trip.destination}}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="details-sub-title">
-                        <span class="text-detail-sub-title">Servicio</span>
-                        <span>&nbsp;</span>
-                        <span class="text-detail-sub-title">/</span>
-                        <span>&nbsp;</span>
-                        <span class="text-detail-sub-title">Service</span>
-                    </div>
-                    <div class="details-row">
-                        <div class="details-row-label">
-                            <div class="detais-row-label-icon icon">
-                                <div class="car-icon icon-box"></div>
-                            </div>
-                            <div class="detais-row-label-text">
-                                <span>&nbsp;</span>
-                                <span class="text-detail">Tipo de Vehículo</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail">/</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail">Vehicle Type</span>
-                            </div>
-                        </div>
-                        <div class="details-row-value">
-                            <span class="text-detail bold">{{service.vehicle-type}}</span>
-                        </div>
-                    </div>
-                    <div class="details-row">
-                        <div class="details-row-label">
-                            <div class="detais-row-label-icon icon">
-                                <div class="distance-icon icon-box"></div>
-                            </div>
-                            <div class="detais-row-label-text">
-                                <span>&nbsp;</span>
-                                <span class="text-detail">Distancia estimada</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail">/</span>
-                                <span>&nbsp;</span>
-                                <span class="text-detail italic">Estimated distance</span>
-                            </div>
-                        </div>
-                        <div class="details-row-value">
-                            <span class="text-detail bold">{{service.estimated-distance}}</span>
-                        </div>
-                    </div>
-                    <div class="details-sub-title">
-                        <span>&nbsp;</span>
-                        <span class="text-detail-sub-title">Pasajero</span>
-                        <span>&nbsp;</span>
-                        <span class="text-detail-sub-title">/</span>
-                        <span>&nbsp;</span>
-                        <span class="text-detail-sub-title italic">Passenger</span>
-                    </div>
-                    <div class="details-row-passenger">
-                        <div class="details-row-passenger-name">
-                            <div class="details-row-passenger-icon icon">
-                                <div class="user-group-icon icon-box"></div>
-                            </div>
-                            <div class="details-row-passenger-text">
-                                <span>&nbsp;</span>
-                                <span class="text-detail-med bold">{{passenger.name}}</span>
-                            </div>
-                        </div>
-                        <div class="details-row-passenger-phone">
-                            <div class="details-row-passenger-icon icon">
-                                <div class="phone-icon icon-box"></div>
-                            </div>
-                            <div class="details-row-passenger-text">
-                                <span>&nbsp;</span>
-                                <span class="text-detail-med bold">{{passenger.phone}}</span>
-                            </div>
-                        </div>
-                        <div class="details-row-passenger-email">
-                            <div class="details-row-passenger-icon icon">
-                                <div class="email-icon icon-box"></div>
-                            </div>
-                            <div class="details-row-passenger-text">
-                                <span>&nbsp;</span>
-                                <span class="text-detail-med bold">{{passenger.email}}</span>
-                            </div>
-                        </div>                        
-                    </div>
-                </div>
-            </main>
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left">
+                                            <img src="https://shuttle-cancun.netlify.app/png/clock.png" style="width: 16px;height:16px;">
+                                            &nbsp;Hora de Servicio / <i>Service Hour</i>
+                                        </td>
+                                        <td align="right" style="font-weight: 700;">
+                                            {{pickup-date.time}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left">
+                                            <img src="https://shuttle-cancun.netlify.app/png/user.png" style="width: 16px;height:16px;">
+                                            &nbsp;# Pasajeros / <i># Passengers</i>
+                                        </td>
+                                        <td align="right" style="font-weight: 700;">
+                                            {{pickup-date.total-passengers}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
 
-            <main class="thanks">
-                <p class="thanks-message bold">
-                    ¡Gracias por viajar con Shuttle2Cancun!
-                </p>    
-                <p class="thanks-message bold italic">
-                    Thanks for traveling with Shuttle2Cancun!
-                </p>    
-            </main>
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left">
+                                            <img src="https://shuttle-cancun.netlify.app/png/map-pin.png" style="width: 16px;height:16px;">
+                                            &nbsp;Desde / <i>From</i>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <div style="padding-top:5px;font-weight: 700;">
+                                                {{pickup-date.from}}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
 
-            <main class="closing">
-                <p class="closing-title bold">
-                    INFORMACION PUNTO DE ENCUENTRO PARA LLEGADA A AEROPUERTO DE CANCUN
-                </p>
-                <p class="closing-title bold italic">
-                    MEETING POINT INFORMATION FOR ARRIVAL AT CANCUN AIRPORT
-                </p>
-                <p class="closing-text">
-                    <span class="text-main">
-                        En la Terminal 2 para vuelos nacionales e internacionales: Welcome Bar, Zona de andenes (servicios precontratados y agencias de viaje).
-                    </span>
-                    <span> </span>
-                    <span class="text-main">/</span>
-                    <span> </span>
-                    <span class="text-main italic">
-                        In Terminal 2 for national and international flights: Welcome Bar, Platform area (pre-contracted services and travel agencies).
-                    </span>
-                </p>
-                <p class="closing-text">
-                    <span class="text-main">
-                        En la Terminal 3 para todos los vuelos: Margarita Ville Bar, Zona de andenes (servicios pre contratados y agencias de viaje)
-                    </span>
-                    <span> </span>
-                    <span class="text-main">/</span>
-                    <span> </span>
-                    <span class="text-main italic">
-                        In Terminal 3 for all flights: Margarita Ville Bar, Platform area (pre-contracted services and travel agencies).
-                    </span>
-                </p>
-                <p class="closing-text">
-                    <span class="text-main">
-                        En la Terminal 4 Welcome Bar, Zona de andenes (servicios precontratados y agencias de viaje).
-                    </span>
-                    <span> </span>
-                    <span class="text-main">/</span>
-                    <span> </span>
-                    <span class="text-main italic">
-                        In Terminal 4 Welcome Bar, Platform Area (pre-contracted services and travel agencies)
-                    </span>
-                </p>
-            </main>
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left">
+                                            <img src="https://shuttle-cancun.netlify.app/png/map-pin.png" style="width: 16px;height:16px;">
+                                            &nbsp;Destino / <i>Destination</i>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <div style="padding-top:5px;font-weight: 700;">
+                                                {{pickup-date.destination}}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                <table border="0" cellpadding="0" cellspacing="0" bgcolor="#DBDBDB" style="border: 1px solid #808080;border-radius:2px; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:17px; color:#808080; font-weight:700;">
+                                    <tr>
+                                        <td>
+                                            <div style="padding:5px;">Viaje de regreso / <i>Return Trip</i></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
 
-            <footer>
-                <div class="footer-box">
-                    <span class="text-title">En dado caso de no localizar a nuestros agentes favor de llamar al tel&eacute;fono de Canc&uacute;n: +52(998)4956972.</span>
-                    <span> </span>
-                    <span class="text-value">/</span>
-                    <span> </span>
-                    <span class="text-title">If you cannot locate our agents, please call the Canc&uacute;n phone number: +52(998)4956972.</span>
-                </div>
-                <div class="terms-and-conditions">
-                    <a data-id="terms-and-condition-text" href="">Servicio sujeto a terminos y condiciones (*) / Service subject to terms and conditions (*)</a>
-                </div>
-                
-            </footer>
-        </div>
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left">
+                                            <img src="https://shuttle-cancun.netlify.app/png/calendar.png" style="width: 16px;height:16px;">
+                                            &nbsp;Día / <i>Day</i>
+                                        </td>
+                                        <td align="right" style="font-weight: 700;">
+                                            {{return-trip.day}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
 
-        <footer>
-            <div class="bottom-brand">
-                <div class="logo">
-                    <svg class="img-logo" id="logo-svg" xmlns="http://www.w3.org/2000/svg" style="transform: none; transform-origin: 50% 50%; cursor: move; max-height: 488.68px;" viewBox="0 0 16800 5280">
-                        <g id="l6RVHo3aSi7XUMp3cJdLhZp" fill="rgb(255,255,255)" style="transform: none;">
-                            <g style="transform: none;">
-                                <path id="p1Ez4X6Qe8" d="M12839 5088 c-3 -92 1 -294 6 -343 28 -256 115 -606 214 -853 66 -165 112 -252 220 -415 88 -135 175 -214 870 -795 81 -67 119 -81 174 -63 72 24 102 87 93 193 -3 40 -9 191 -11 335 -6 254 -5 263 15
-                                    283 11 11 28 20 38 20 10 0 52 -25 94 -55 85 -61 83 -59 117 -215 22 -101 83 -389 131 -610 16 -74 44 -202 61 -285 50 -235 46 -225 103 -280 28 -28 74 -69 101 -92 215 -178 331 -278 345 -296 105 -139 -47 -344 -212 -285
-                                    -33 11 -282 217 -1042 857 -61 51 -163 137 -226 189 -63 53 -172 150 -241 217 -274 264 -493 384 -651 355 -96 -18 -172 -136 -193 -302 -10 -83 -7 -849 4 -950 66 -606 422 -1084 996 -1336 296 -129 606 -188 980 -184 434 
-                                    5 843 123 1170 340 116 76 316 270 385 372 102 153 181 336 215 502 51 255 36 554 -41 770 -40 112 -136 303 -202 403 -219 328 -522 612 -1157 1086 -266 199 -347 262 -446 351 -78 69 -152 157 -163 193 -6 20 -1 20 1002
-                                    20 l1007 1 3 447 2 447 -1880 0 -1880 0 -1 -22z m1321 -3094 c356 -293 354 -290 310 -334 -19 -19 -28 -20 -123 -15 -56 3 -140 10 -187 15 -47 5 -135 12 -195 15 -61 3 -124 8 -140 10 -17 2 -77 6 -135 10 -58 4 -117 8 -132
-                                    10 -14 2 -73 6 -129 10 -57 4 -113 12 -125 18 -12 7 -49 38 -83 69 -48 45 -61 63 -61 86 0 16 7 35 15 42 16 14 173 40 595 101 47 7 117 18 155 25 119 22 140 16 235 -62z"></path>
-                                <path id="pDTSQwsr0" d="M8032 4479 l43 -52 3 34 c2 18 -1 35 -7 37 -6 2 -11 10 -11 18 0 9 -12 14 -36 14 l-35 0 43 -51z"></path>
-                                <path id="p3lqRqOkE" d="M910 4490 c0 -5 -7 -10 -15 -10 -10 0 -15 -11 -15 -35 0 -31 -3 -35 -25 -35 -20 0 -25 -5 -25 -24 0 -18 -8 -27 -30 -35 -16 -5 -30 -17 -30 -25 0 -14 -29 -16 -229 -16 l-229 0 6 45 c4 37 2 45 -12 45
-                                    -19 0 -30 -26 -57 -130 -60 -241 -38 -538 56 -762 l15 -38 296 0 c337 0 341 1 297 64 -69 103 -117 288 -116 451 2 171 48 332 129 451 l44 64 -30 0 c-17 0 -30 -4 -30 -10z"></path>
-                                <path id="p18WzThvrG" d="M1900 4440 c12 -16 22 -30 24 -30 13 0 86 43 86 50 0 6 -30 10 -66 10 l-65 0 21 -30z"></path>
-                                <path id="pzqLEKie2" d="M4076 4380 l-18 -70 -674 0 c-653 0 -674 1 -674 19 0 10 -9 21 -20 24 -12 3 -20 14 -20 26 0 15 -6 21 -24 21 l-24 0 39 -147 c22 -82 59 -224 83 -318 25 -93 57 -215 72 -270 14 -55 32 -120 38 -145 l12
-                                    -45 222 -3 c214 -2 222 -3 222 -22 0 -13 7 -20 20 -20 11 0 20 3 20 7 0 9 -80 376 -130 599 -22 98 -40 181 -40 186 0 4 92 8 205 8 l205 0 -5 -22 c-4 -22 -35 -160 -76 -343 -11 -49 -29 -130 -40 -180 -12 -49 -27 -118 -35
-                                    -152 -8 -34 -14 -67 -14 -73 0 -13 57 -13 65 0 4 6 85 10 209 10 l204 0 26 98 c36 132 114 429 171 647 25 99 50 192 55 208 9 26 7 27 -24 27 -31 0 -33 -1 -50 -70z"></path>
-                                <path id="pj6GTHds0" d="M11394 4405 c-7 -19 -14 -36 -14 -38 0 -2 24 -7 53 -10 152 -18 492 -155 757 -304 69 -39 127 -69 130 -67 2 3 5 77 6 164 l2 160 -292 0 c-272 0 -295 1 -346 21 -30 12 -100 31 -155 44 -86 19 -100 25
-                                    -103 44 -5 31 -21 26 -38 -14z"></path>
-                                <path id="pbSysPH4G" d="M10790 4410 c0 -15 7 -20 29 -20 39 0 61 9 61 26 0 10 -13 14 -45 14 -38 0 -45 -3 -45 -20z"></path>
-                                <path id="pinQgC3I" d="M10350 4390 c0 -13 -7 -20 -20 -20 -13 0 -20 -7 -20 -20 0 -15 7 -20 29 -20 16 0 33 6 38 13 8 11 9 18 5 55 -3 20 -32 14 -32 -8z"></path>
-                                <path id="p1DDCcKRTQ" d="M10594 4394 c3 -9 6 -18 6 -20 0 -6 36 -5 54 2 33 13 17 34 -25 34 -33 0 -40 -3 -35 -16z"></path>
-                                <path id="pttt1n6Dj" d="M5150 4183 c-51 -98 -104 -196 -117 -218 l-24 -40 4 193 3 192 -270 -2 -271 -3 -3 -418 -2 -417 446 2 446 3 50 95 c167 318 216 411 228 439 18 45 33 39 26 -11 -3 -24 -8 -122 -11 -218 -4 -96 -8 -212
-                                    -10 -257 -4 -82 -4 -83 21 -83 15 0 24 6 24 15 0 13 30 15 213 15 201 0 213 -1 225 -20 8 -13 23 -20 42 -20 l30 0 0 418 c0 229 -3 427 -6 440 l-6 22 -464 0 -464 0 0 25 c0 14 -4 25 -9 25 -5 0 -50 -80 -101 -177z"></path>
-                                <path id="pyzwy0CFA" d="M10140 4334 c-30 -7 -119 -17 -197 -20 l-143 -7 0 -49 c0 -26 2 -48 4 -48 3 0 69 16 148 35 79 20 177 42 218 51 103 21 110 23 110 40 0 18 -63 17 -140 -2z"></path>
-                                <path id="p11Sn7xO1p" d="M6950 4324 c0 -14 -29 -15 -264 -12 l-265 3 -10 -40 c-11 -43 -28 -177 -34 -265 -5 -70 17 -277 38 -354 9 -33 28 -88 42 -123 l25 -63 278 0 c189 0 279 -3 282 -11 2 -6 22 -9 45 -7 l42 3 -44 65 c-91
-                                    136 -126 278 -121 485 3 133 21 225 61 318 6 15 1 17 -34 17 -31 0 -41 -4 -41 -16z"></path>
-                                <path id="pNlIldYcP" d="M8750 4078 l0 -238 53 21 c126 51 388 149 454 170 l73 24 0 115 c0 63 -4 120 -8 127 -5 8 -87 12 -290 15 l-282 3 0 -237z"></path>
-                                <path id="peNyi2uxw" d="M10740 4073 c-8 -1 -44 -4 -79 -5 l-63 -3 0 -220 c1 -429 0 -395 22 -395 11 0 20 4 20 10 0 6 153 11 426 12 l426 3 62 120 c34 66 92 177 130 247 48 91 64 129 54 132 -53 17 -342 67 -470 81 l-57 6 -27
-                                    -60 c-14 -34 -33 -66 -42 -73 -14 -12 -15 -5 -9 60 5 54 4 74 -5 77 -13 5 -361 12 -388 8z"></path>
-                                <path id="pb5qryNPc" d="M10320 4033 c-132 -24 -334 -68 -415 -91 l-100 -29 -3 -221 -2 -222 260 0 c167 0 260 -4 260 -10 0 -5 14 -10 30 -10 28 0 30 2 30 38 0 20 1 152 2 292 3 249 3 255 -17 256 -11 1 -31 0 -45 -3z"></path>
-                                <path id="pdRLEUHmh" d="M11790 3918 c0 -24 -2 -81 -5 -128 -3 -47 -7 -137 -10 -202 l-6 -116 273 -4 c150 -2 274 -3 276 -2 6 3 9 303 3 313 -13 20 -296 121 -451 161 -25 6 -53 13 -62 16 -15 5 -18 -1 -18 -38z"></path>
-                                <path id="pPrstFAc4" d="M9140 3642 c-221 -111 -280 -148 -280 -173 0 -16 7 -19 55 -19 30 0 55 5 55 10 0 6 55 10 145 10 l146 0 6 -30 c4 -25 10 -30 34 -30 l29 0 0 160 c0 88 -4 160 -8 160 -4 0 -87 -40 -182 -88z"></path>
-                                <path id="pK5uxgAYu" d="M1896 3503 c-14 -20 -23 -40 -20 -45 3 -4 32 -8 65 -8 58 0 59 0 59 28 0 23 -7 32 -35 45 -20 9 -38 17 -40 17 -2 0 -15 -17 -29 -37z"></path>
-                                <path id="pgYv7cdcs" d="M8047 3490 c-20 -27 -37 -52 -37 -55 0 -3 16 -5 35 -5 19 0 35 5 35 10 0 6 20 8 55 4 52 -6 85 4 85 26 0 6 -122 70 -133 70 -2 0 -19 -22 -40 -50z"></path>
-                            </g>
-                        </g>
-                        <g id="l508nUgNedpJANehXsqkQoI" fill="rgb(255,255,255)" style="transform: none;">
-                            <g style="transform: none;">
-                                <path id="pGcw3GyJH" d="M302 2290 c-41 -17 -46 -54 -23 -175 11 -60 23 -127 27 -147 4 -25 18 -48 40 -68 l35 -30 534 0 534 0 25 -22 c30 -27 50 -118 32 -142 -9 -13 -79 -16 -436 -18 -467 -4 -461 -4 -556 -69 -48 -33 -103
-                                    -109 -124 -172 -26 -80 -3 -302 45 -437 53 -151 223 -296 383 -329 72 -15 1205 -15 1233 0 36 19 38 47 14 191 -25 145 -31 162 -65 193 -21 19 -41 20 -556 25 -459 4 -535 7 -548 20 -15 15 -36 100 -36 145 0 13 8 26 18
-                                    30 9 4 200 9 424 10 452 4 475 7 558 68 77 57 123 140 136 245 7 57 -25 257 -56 347 -54 160 -225 302 -404 336 -63 12 -1204 11 -1234 -1z"></path>
-                                <path id="p16k2ldYmR" d="M2125 2275 c-14 -13 -25 -32 -25 -42 0 -15 75 -436 171 -963 41 -223 79 -437 86 -480 9 -52 30 -88 63 -105 23 -12 68 -15 213 -15 183 0 184 0 207 25 28 30 28 27 -34 365 -20 107 -34 201 -31 207 3
-                                    10 73 13 304 13 276 0 301 -1 309 -17 5 -10 28 -126 52 -258 23 -132 46 -253 52 -269 23 -58 53 -66 259 -66 181 0 186 1 207 23 12 13 22 34 22 47 0 21 -78 464 -160 910 -10 58 -29 159 -41 225 -50 277 -69 368 -81 383 -29
-                                    35 -73 42 -253 42 -173 0 -176 0 -200 -25 -30 -29 -30 -35 -5 -169 11 -58 29 -154 40 -212 31 -165 35 -214 19 -214 -120 -5 -594 1 -600 7 -5 5 -29 123 -54 263 -25 140 -52 269 -59 286 -25 55 -61 64 -260 64 -174 0 -177 0
-                                    -201 -25z"></path>
-                                <path id="pdmShTgg" d="M4293 2289 c-109 -21 -194 -85 -242 -180 -39 -78 -47 -159 -27 -269 100 -559 96 -536 151 -845 62 -351 43 -330 302 -330 185 0 185 0 205 25 16 20 19 33 14 75 -7 49 -142 805 -171 956 -21 106 -20 128 8
-                                138 23 9 646 6 683 -3 25 -7 39 -38 54 -126 6 -36 19 -112 30 -170 20 -115 113 -628 135 -754 24 -134 44 -143 282 -142 234 2 233 1 194 208 -11 57 -45 245 -76 418 -122 680 -119 668 -180 765 -42 67 -134 149 -208 186 -109 55
-                                -146 59 -652 58 -253 -1 -479 -5 -502 -10z"></path>
-                                <path id="pLsYG7Sa5" d="M6387 2280 c-32 -25 -34 -55 -13 -163 8 -40 40 -214 71 -387 31 -173 62 -349 70 -390 34 -181 41 -230 34 -242 -6 -10 -63 -13 -248 -13 -314 0 -298 13 -261 -209 24 -145 30 -160 72 -186 32 -19 51 -20 770
-                                    -20 405 0 744 3 753 6 8 4 22 18 29 33 12 23 11 44 -10 166 -14 77 -31 150 -39 162 -29 44 -48 47 -297 47 -197 1 -240 4 -252 16 -8 9 -27 88 -45 185 -17 94 -51 285 -76 425 -44 246 -80 447 -91 501 -3 14 -19 39 -35 55 l-30
-                                    29 -188 3 c-178 3 -188 2 -214 -18z"></path>
-                                <path id="pHESU5FJQ" d="M8025 2275 c-14 -13 -25 -32 -25 -42 0 -10 14 -92 30 -183 32 -173 50 -270 125 -690 40 -223 43 -256 30 -266 -10 -7 -87 -10 -231 -9 -119 2 -228 -1 -243 -4 -49 -13 -54 -45 -31 -183 27 -162 36 -186 74
-                                    -209 30 -18 59 -19 777 -19 l746 0 23 25 c23 25 24 27 11 103 -31 188 -41 226 -72 257 l-29 30 -245 0 c-176 0 -247 3 -256 12 -12 12 -20 50 -138 713 -39 217 -78 410 -86 428 -25 54 -59 62 -260 62 -173 0 -176 0 -200 -25z"></path>
-                                <path id="p18TK3lFD6" d="M9233 2288 c-39 -19 -42 -52 -17 -193 35 -193 63 -347 84 -465 11 -58 51 -283 90 -500 l71 -395 34 -32 35 -33 184 0 c101 0 192 3 201 6 8 4 22 18 29 33 13 24 5 79 -80 546 -51 286 -96 534 -99 552 -11
-                                    64 -18 63 425 63 501 0 462 -21 415 231 -23 119 -29 137 -55 164 l-30 30 -633 2 c-433 1 -639 -1 -654 -9z"></path>
-                                <path id="pRyFfSIv0" d="M10755 2278 c-26 -20 -27 -25 -22 -82 3 -34 15 -108 26 -166 11 -58 29 -156 41 -217 11 -62 29 -161 40 -220 10 -60 33 -187 50 -283 17 -96 37 -206 45 -245 7 -38 23 -128 36 -199 25 -142 43 -176 102 -195
-                                    22 -7 257 -10 723 -8 773 2 730 -2 719 71 -31 199 -57 312 -75 331 -20 19 -33 20 -511 21 -408 0 -492 2 -499 14 -9 15 -30 124 -30 158 0 14 6 22 18 22 9 0 186 0 394 0 331 0 378 1 392 15 21 21 21 25 -10 195 -19 107 -32 151
-                                    -47 168 l-20 22 -399 0 -398 0 -9 23 c-12 29 -34 148 -28 153 2 3 219 5 481 6 327 1 483 5 499 12 12 6 23 21 25 32 2 11 -11 97 -27 190 -25 138 -35 172 -52 187 -20 16 -70 17 -729 17 l-707 0 -28 -22z"></path>
-                            </g>
-                        </g>
-                        <g id="l4u9rZjXaUTYFSdeyaxkxxB" fill="rgb(255,255,255)" style="transform: none;">
-                            <g style="transform: none;">
-                                <path id="pubGcUf6p" d="M1172 5089 c-301 -52 -553 -194 -725 -409 -66 -83 -155 -246 -161 -297 -7 -48 -18 -83 -27 -83 -5 0 -6 -6 -4 -13 4 -9 70 -12 285 -12 154 0 280 2 280 5 0 4 -5 11 -11 17 -8 8 -8 13 0 17 6 4 11 2 11 -3
-                                    0 -6 9 -11 20 -11 22 0 27 15 8 23 -8 4 -7 6 3 6 22 1 34 32 17 43 -10 6 -9 8 3 8 19 0 53 46 44 60 -3 6 -2 10 4 10 5 0 36 28 69 63 182 188 453 235 692 120 59 -29 94 -55 163 -126 l88 -89 32 13 c18 7 121 57 230 111 109
-                                    54 202 98 207 98 23 0 5 25 -82 114 -183 186 -434 307 -713 344 -113 15 -319 11 -433 -9z"></path>
-                                <path id="p13iZ2Bkyl" d="M7330 5090 c-430 -77 -772 -355 -894 -727 -31 -93 -45 -88 269 -88 255 0 275 1 275 18 0 10 8 17 19 17 13 0 29 20 52 67 50 98 162 208 262 256 43 21 107 44 142 52 125 26 288 2 404 -59 60 -32 163 -123
-                                    196 -173 15 -24 28 -43 30 -43 2 0 108 52 235 115 127 63 235 115 240 115 22 0 6 24 -66 100 -171 179 -375 288 -649 346 -122 25 -382 28 -515 4z">
-                                </path>
-                                <path id="p3d29JiJh" d="M9387 5099 c-74 -12 -184 -47 -252 -81 -198 -100 -332 -257 -371 -437 -15 -73 -18 -321 -3 -321 5 0 9 5 9 10 0 6 93 10 260 10 l261 0 6 -30 c3 -16 12 -30 19 -30 11 0 14 30 14 153 0 127 4 159 19 192 38
-                                    83 114 127 216 126 68 0 117 -17 165 -58 56 -47 70 -91 70 -230 l0 -122 113 -3 c61 -2 117 0 123 4 6 4 13 5 16 3 3 -3 47 3 98 14 50 11 95 20 98 19 4 -2 35 4 70 11 70 15 65 6 63 131 -3 158 -57 287 -171 401 -41 42 -106 94 -145
-                                    117 -81 48 -224 98 -334 117 -82 14 -267 17 -344 4z">
-                                </path>
-                                <path id="p11rQRugiI" d="M2450 5068 c0 -7 14 -65 31 -128 16 -63 50 -191 74 -285 25 -93 51 -195 60 -225 8 -30 17 -63 20 -73 3 -9 7 -27 10 -39 2 -12 8 -25 13 -30 5 -5 322 -9 705 -8 391 0 697 -4 697 -8 0 -5 11 -7 25 -4 24 4
-                                    36 22 15 22 -5 0 -10 5 -10 10 0 6 7 10 15 10 8 0 15 5 15 10 0 6 -4 10 -10 10 -18 0 -11 20 8 21 10 0 12 3 5 6 -18 7 -16 23 2 23 8 0 15 5 15 10 0 6 -4 10 -10 10 -5 0 -10 5 -10 10 0 6 7 10 15 10 8 0 18 16 24 38 5 20 44 166
-                                    85 324 42 158 76 290 76 293 0 3 -122 5 -270 5 -208 0 -271 -3 -274 -12 -2 -7 -24 -105 -49 -218 l-44 -205 -300 -3 -300 -2 -48 220 -48 220 -268 0 c-209 0 -269 -3 -269 -12z"></path>
-                                <path id="pn45jJa4P" d="M4464 5058 c3 -13 6 -203 7 -423 1 -220 3 -393 6 -384 6 26 32 29 276 29 195 0 227 -2 227 -15 0 -8 8 -15 18 -14 10 0 12 3 5 6 -18 7 -16 23 2 23 12 0 15 16 17 73 1 39 2 97 3 127 1 30 5 152 10 270 4 118
-                                    8 240 9 270 l0 55 -293 3 -293 2 6 -22z"></path>
-                                <path id="p1pKMZaM9" d="M5607 5058 c-8 -13 -56 -104 -107 -203 -51 -99 -137 -265 -191 -370 -55 -104 -99 -198 -99 -207 0 -10 7 -18 15 -18 8 0 15 5 15 10 0 7 160 10 460 10 402 0 460 -2 460 -15 0 -8 9 -15 20 -15 20 0 20 7 20
-                                    415 l0 415 -290 0 c-289 0 -290 0 -303 -22z"></path>
-                                <path id="pmj2mTRK8" d="M10599 5078 c0 -2 -1 -158 -2 -348 l-1 -344 24 -6 c14 -3 45 -2 70 2 25 5 137 11 250 14 112 3 205 6 207 7 2 3 10 181 19 445 3 105 7 200 8 210 1 16 -20 17 -286 20 -159 1 -288 1 -289 0z"></path>
-                                <path id="pNCu0McRD" d="M11677 4948 c-37 -73 -115 -223 -173 -333 -57 -110 -107 -210 -110 -222 -6 -24 -9 -23 111 -48 44 -10 128 -35 186 -56 112 -41 141 -48 99 -24 -22 13 7 14 256 12 l280 -2 0 400 -1 400 -290 3 -290 2 -68 -132z"></path>
-                            </g>
-                        </g>
-                        <g id="l4I7k9X4IZxKMtQeHLeaYfB" fill="rgb(255,255,255)" style="transform: none;">
-                            <g style="transform: none;">
-                                <path id="pK9V4E6Wg" d="M11900 3920 c0 -5 7 -10 15 -10 8 0 15 5 15 10 0 6 -7 10 -15 10 -8 0 -15 -4 -15 -10z"></path>
-                                <path id="p10H1jnNz7" d="M14916 3844 c-9 -23 -8 -24 14 -24 23 0 26 13 6 29 -11 9 -15 8 -20 -5z"></path>
-                                <path id="pE4qw9tPQ" d="M12197 3824 c3 -8 11 -14 19 -14 21 0 17 17 -5 23 -14 3 -18 1 -14 -9z"></path>
-                                <path id="p17Pptp4Ax" d="M15086 3715 c-3 -9 0 -15 9 -15 16 0 20 16 6 24 -5 3 -11 -1 -15 -9z"></path>
-                                <path id="p81urhJXi" d="M7013 3623 c-18 -7 -16 -23 2 -23 8 0 15 7 15 15 0 8 -1 15 -2 14 -2 0 -9 -3 -15 -6z"></path>
-                                <path id="pKyITHiLo" d="M9046 3595 c-10 -8 -24 -16 -30 -18 -6 -2 -8 -7 -4 -11 9 -10 44 10 52 29 7 18 6 18 -18 0z"></path>
-                                <path id="p1FnHr31Y1" d="M3303 3593 c-18 -7 -16 -23 2 -23 8 0 15 7 15 15 0 8 -1 15 -2 14 -2 0 -9 -3 -15 -6z"></path>
-                                <path id="p1HBsXYJvi" d="M8981 3561 c-10 -6 -10 -10 -1 -16 13 -8 24 -1 19 14 -3 6 -10 7 -18 2z"></path>
-                                <path id="pvKZ0tTsT" d="M3313 3543 c-18 -7 -16 -23 2 -23 8 0 15 7 15 15 0 8 -1 15 -2 14 -2 0 -9 -3 -15 -6z"></path>
-                                <path id="pVouaAyP6" d="M8853 3488 l-103 -61 0 -273 0 -274 290 0 290 0 0 279 c0 258 -1 280 -17 284 -17 4 -17 5 0 6 24 1 22 31 -3 31 -11 0 -20 5 -20 10 0 16 -347 13 -353 -2 -3 -10 -7 -10 -17 -1 -9 8 -8 12 8 17 11 4 22
-                                    16 25 26 3 11 4 20 4 19 -1 -1 -48 -28 -104 -61z"></path>
-                                <path id="pZvUNN4WV" d="M1910 3525 c-10 -13 -9 -15 8 -15 12 0 24 -5 27 -10 4 -6 11 -8 16 -5 5 4 9 2 9 -3 0 -10 -56 -9 -67 1 -3 4 -26 -16 -51 -44 -89 -99 -216 -163 -374 -189 -193 -30 -418 70 -544 244 -19 26 -22 27 -36
-                                    12 -15 -14 -53 -16 -297 -16 -181 0 -281 4 -281 10 0 6 -5 10 -10 10 -15 0 14 -63 65 -145 155 -247 390 -411 703 -491 126 -32 193 -39 357 -38 352 2 663 127 887 356 49 49 88 92 88 96 0 5 -442 227 -479 240 -4 1 -14 -4
-                                    -21 -13z"></path>
-                                <path id="p1BLCYxCHT" d="M8090 3526 c0 -13 20 -26 41 -26 18 0 8 17 -16 28 -20 9 -25 9 -25 -2z"></path>
-                                <path id="pdwCUzNtX" d="M5356 3515 c-5 -13 -64 -15 -446 -15 l-440 0 0 -72 c0 -40 -1 -180 -1 -311 l0 -238 288 1 c158 0 291 4 294 8 4 4 32 55 63 115 63 121 143 273 223 425 37 71 50 102 40 102 -8 0 -17 -7 -21 -15z"></path>
-                                <path id="pfofx4zgs" d="M11766 3340 c-5 -107 -9 -220 -11 -250 -1 -30 -4 -90 -6 -133 l-4 -78 284 0 c156 0 286 3 290 6 3 3 6 141 6 305 l0 299 -29 5 c-16 3 -138 6 -272 6 -223 0 -243 1 -246 18 -2 9 -8 -71 -12 -178z"></path>
-                                <path id="p19dClRC5H" d="M3880 3510 c0 -6 -76 -10 -209 -10 -138 0 -212 -4 -216 -11 -4 -6 -13 -8 -21 -5 -9 3 -14 -1 -14 -12 -1 -9 -9 -51 -19 -92 l-17 -75 -24 100 -23 100 -239 -3 c-220 -2 -239 -4 -234 -20 3 -9 24 -89 47
-                                    -177 23 -88 58 -220 78 -293 l36 -132 354 -1 c195 0 357 4 361 8 4 4 29 89 55 188 25 99 59 227 75 285 43 161 42 160 25 160 -8 0 -15 -4 -15 -10z"></path>
-                                <path id="pmlH9Wmkn" d="M6496 3448 c52 -103 87 -152 173 -241 175 -181 396 -295 661 -343 131 -23 375 -24 495 -1 275 54 514 179 679 358 36 39 66 74 66 78 0 3 -86 48 -191 99 -145 72 -193 91 -203 83 -10 -8 -21 -8 -42 -1
-                                    -30 12 -84 4 -84 -11 0 -6 -4 -8 -8 -5 -5 3 -24 -11 -43 -30 -38 -40 -126 -102 -180 -127 -147 -68 -356 -64 -504 11 -62 31 -159 105 -186 142 -15 19 -28 26 -42 24 -12 -2 -16 -2 -9 2 6 3 12 12 12 20 0 10 -6 11 -26 4 -35
-                                    -14 -584 -13 -584 0 0 6 -5 10 -10 10 -6 0 6 -33 26 -72z"></path>
-                                <path id="p116DoyRMU" d="M9805 3507 c-3 -7 -4 -151 -3 -320 l3 -308 283 1 c155 0 285 0 290 0 5 0 7 326 2 583 0 9 -7 17 -15 17 -8 0 -15 5 -15 10 0 6 -97 10 -271 10 -177 0 -268 3 -264 10 3 6 4 10 0 10 -3 0 -8 -6 -10 -13z"></path>
-                                <path id="p72LxUfYc" d="M11485 3510 c-4 -6 -162 -10 -440 -10 l-435 0 -5 -22 c-8 -37 -11 -598 -2 -598 4 0 134 0 288 0 259 -1 283 1 294 17 7 10 40 72 75 138 145 279 185 353 216 412 19 34 34 65 34 68 0 9 -19 5 -25 -5z"></path>
-                                <path id="p74PdYQw9" d="M5660 3483 c0 -15 -2 -16 -10 -3 -7 10 -10 -6 -10 -55 0 -38 -2 -97 -4 -130 -2 -33 -7 -141 -11 -240 l-7 -180 289 2 288 2 3 288 2 288 -22 10 c-13 6 -22 16 -20 23 1 9 -57 12 -248 12 -231 0 -250 -1
-                                    -250 -17z"></path>
-                                <path id="pFuvnIaKk" d="M15447 3444 c-13 -13 -7 -24 14 -24 11 0 19 5 17 12 -5 14 -22 21 -31 12z"></path>
-                                <path id="pI50woTck" d="M15496 3404 c-9 -23 -8 -24 14 -24 23 0 26 13 6 29 -11 9 -15 8 -20 -5z"></path>
-                                <path id="p1F72ogg05" d="M15587 3333 c-9 -9 12 -33 29 -33 17 0 18 12 2 28 -14 14 -22 15 -31 5z"></path>
-                                <path id="ppR0DZu21" d="M15707 3234 c-13 -13 -7 -24 14 -24 11 0 19 5 17 12 -5 14 -22 21 -31 12z"></path>
-                                <path id="pCifgj7Bz" d="M15765 3180 c-8 -13 19 -40 39 -40 21 0 20 13 -2 33 -21 20 -28 21 -37 7z"></path>
-                                <path id="p18VciaMVw" d="M15864 3097 c-8 -8 -1 -21 24 -44 33 -31 62 -43 62 -25 0 4 -17 24 -37 44 -28 27 -41 33 -49 25z"></path>
-                                <path id="pG56twWy3" d="M15952 3013 c-10 -4 -10 -8 -1 -19 13 -15 39 -19 39 -5 0 14 -24 29 -38 24z"></path>
-                                <path id="paEqgZzaO" d="M16052 2911 c-10 -6 -7 -15 13 -39 28 -33 55 -42 55 -19 0 22 -54 67 -68 58z"></path>
-                                <path id="pHpHiRwEj" d="M14410 2805 c0 -8 -4 -15 -10 -15 -14 0 -12 -27 3 -34 10 -5 10 -7 0 -12 -18 -8 -16 -24 2 -24 11 0 15 12 15 50 0 28 -2 50 -5 50 -3 0 -5 -7 -5 -15z"></path>
-                                <path id="p43dfFE6c" d="M16158 2793 c-16 -4 -16 -6 -4 -19 19 -18 36 -18 36 0 0 18 -10 24 -32 19z"></path>
-                                <path id="pxN72iuHh" d="M16203 2743 c-16 -6 -5 -33 13 -33 8 0 14 6 14 14 0 18 -11 25 -27 19z"></path>
-                                <path id="pAjpnALIm" d="M16243 2692 c-9 -6 -7 -16 7 -40 19 -32 50 -44 50 -19 -1 22 -44 67 -57 59z"></path>
-                                <path id="p440SLDMU" d="M14263 2613 c9 -2 25 -2 35 0 9 3 1 5 -18 5 -19 0 -27 -2 -17 -5z"></path>
-                                <path id="p1Dx1jxgs0" d="M16321 2580 c-16 -9 -6 -30 15 -30 15 0 20 25 6 34 -4 2 -14 1 -21 -4z"></path>
-                                <path id="pa1C0bZWR" d="M16380 2490 c-12 -8 -11 -10 5 -11 11 0 14 -3 8 -6 -18 -7 -16 -23 2 -23 16 0 19 18 7 37 -5 8 -13 9 -22 3z"></path>
-                                <path id="pp7paSaYs" d="M16432 2401 c-10 -6 -7 -20 14 -64 16 -32 34 -57 41 -57 19 0 15 19 -15 77 -19 37 -31 50 -40 44z"></path>
-                                <path id="p7zFWp7hx" d="M14010 2290 c-12 -8 -12 -10 3 -16 21 -8 35 2 21 16 -5 5 -15 6 -24 0z"></path>
-                                <path id="pNZ7LrnV6" d="M16500 2250 c-12 -8 -11 -10 5 -11 11 0 14 -3 8 -6 -18 -7 -16 -23 2 -23 16 0 19 18 7 37 -5 8 -13 9 -22 3z"></path>
-                                <path id="ppi8jB6d1" d="M16533 2183 c-19 -7 -16 -23 5 -23 13 0 14 -2 4 -9 -18 -11 -5 -61 17 -61 14 0 14 -2 1 -10 -13 -8 -12 -10 3 -10 21 0 21 11 -1 71 -10 28 -22 44 -29 42z"></path>
-                                <path id="p7vjjaC85" d="M14305 2040 c-3 -6 1 -13 10 -16 19 -8 30 0 20 15 -8 14 -22 14 -30 1z"></path>
-                                <path id="pwT9O6JKL" d="M16583 2005 c-17 -19 -16 -25 2 -25 8 0 15 9 15 20 0 23 -1 24 -17 5z"></path>
-                                <path id="p1zir61Mk" d="M16593 1955 c-17 -19 -16 -25 2 -25 8 0 15 9 15 20 0 23 -1 24 -17 5z"></path>
-                                <path id="pxJFq4WwK" d="M14425 1940 c-3 -6 1 -13 10 -16 19 -8 30 0 20 15 -8 14 -22 14 -30 1z"></path>
-                                <path id="pFRTafuZm" d="M16610 1895 c0 -8 -4 -15 -10 -15 -5 0 -10 -4 -10 -10 0 -5 7 -10 15 -10 9 0 15 9 15 25 0 14 -2 25 -5 25 -3 0 -5 -7 -5 -15z"></path>
-                                <path id="pwjoIeIXL" d="M14622 1774 c-11 -12 -9 -16 13 -26 33 -15 44 -3 19 22 -16 16 -21 17 -32 4z"></path>
-                                <path id="pe4Xod1zo" d="M13275 1731 c-6 -11 33 -26 43 -16 4 3 0 10 -8 15 -19 12 -27 12 -35 1z"></path>
-                                <path id="ps3cFIJoQ" d="M13370 1710 c0 -5 9 -10 20 -10 11 0 20 5 20 10 0 6 -9 10 -20 10 -11 0 -20 -4 -20 -10z"></path>
-                                <path id="pRJFARq3M" d="M13510 1700 c0 -5 7 -10 15 -10 8 0 15 5 15 10 0 6 -7 10 -15 10 -8 0 -15 -4 -15 -10z"></path>
-                                <path id="pgkNJAVg3" d="M13640 1685 c0 -9 6 -12 15 -9 8 4 15 10 15 15 0 5 -7 9 -15 9 -8 0 -15 -7 -15 -15z"></path>
-                                <path id="p136N2oHFp" d="M13770 1682 c0 -14 11 -21 26 -15 21 8 17 23 -6 23 -11 0 -20 -4 -20 -8z"></path>
-                                <path id="pBobONzyH" d="M14735 1680 c-9 -15 4 -30 26 -30 22 0 24 11 7 28 -15 15 -25 15 -33 2z"></path>
-                                <path id="p1BNHBbIkM" d="M13900 1670 c0 -5 7 -10 15 -10 8 0 15 5 15 10 0 6 -7 10 -15 10 -8 0 -15 -4 -15 -10z"></path>
-                                <path id="pRqAMWysY" d="M14022 1658 c3 -8 22 -13 48 -13 26 0 45 5 47 13 3 8 -10 12 -47 12 -37 0 -50 -4 -48 -12z"></path>
-                                <path id="pXPKqFVi1" d="M14160 1650 c0 -5 9 -10 20 -10 11 0 20 5 20 10 0 6 -9 10 -20 10 -11 0 -20 -4 -20 -10z"></path>
-                                <path id="p3KwNtCBu" d="M14300 1640 c0 -5 7 -10 15 -10 8 0 15 5 15 10 0 6 -7 10 -15 10 -8 0 -15 -4 -15 -10z"></path>
-                                <path id="p8bszrWDT" d="M14345 1639 c-4 -6 -4 -13 -1 -16 8 -8 36 5 36 17 0 13 -27 13 -35 -1z"></path>
-                                <path id="pvJm8SyV8" d="M14443 1643 c-18 -7 -16 -23 2 -23 8 0 15 7 15 15 0 8 -1 15 -2 14 -2 0 -9 -3 -15 -6z"></path>
-                                <path id="pWGYjvZih" d="M14793 1633 c-17 -6 9 -33 31 -33 19 0 21 11 4 28 -13 13 -16 13 -35 5z"></path>
-                                <path id="peAdddLkn" d="M14875 1560 c-19 -7 -19 -7 3 -14 26 -9 41 -1 26 13 -5 5 -18 5 -29 1z"></path>
-                                <path id="p13Demvlc1" d="M16590 1531 c0 -5 6 -11 13 -14 8 -3 14 1 14 9 0 8 -6 14 -14 14 -7 0 -13 -4 -13 -9z"></path>
-                                <path id="p3j8MfIEe" d="M14924 1519 c-7 -12 12 -29 34 -29 15 0 16 12 0 28 -15 15 -25 15 -34 1z"></path>
-                                <path id="p13F6D4Qjr" d="M15434 1454 c-6 -19 -8 -34 -3 -34 8 0 24 59 17 65 -2 2 -8 -12 -14 -31z"></path>                                
-                                <path id="peXDfo181" d="M14984 1469 c-7 -12 12 -29 34 -29 15 0 16 12 0 28 -15 15 -25 15 -34 1z"></path>
-                                <path id="pWT7mVqJg" d="M16580 1450 c0 -5 7 -10 15 -10 8 0 15 5 15 10 0 6 -7 10 -15 10 -8 0 -15 -4 -15 -10z"></path>
-                                <path id="p1H0lIvAgC" d="M15044 1419 c-7 -12 12 -29 34 -29 15 0 16 12 0 28 -15 15 -25 15 -34 1z"></path>
-                                <path id="p1FQLZycAP" d="M15107 1374 c-11 -11 5 -34 24 -34 22 0 24 11 7 28 -13 13 -22 15 -31 6z"></path>
-                                <path id="p11aMQrpzE" d="M16560 1355 c0 -8 7 -15 15 -15 8 0 15 7 15 15 0 8 -7 15 -15 15 -8 0 -15 -7 -15 -15z"></path>
-                                <path id="p16WNguDfT" d="M15311 1331 c-30 -8 -40 -31 -14 -31 18 1 53 22 53 34 0 7 -6 7 -39 -3z"></path>
-                                <path id="p1DUMFJDYL" d="M15180 1321 c0 -11 26 -22 34 -14 12 12 5 23 -14 23 -11 0 -20 -4 -20 -9z"></path>
-                                <path id="p1AdGMXF2B" d="M16546 1304 c-9 -24 -7 -34 8 -34 7 0 16 11 18 25 6 28 -16 36 -26 9z"></path>
-                                <path id="p1AqG5Srrk" d="M16520 1220 c0 -5 7 -10 15 -10 8 0 15 5 15 10 0 6 -7 10 -15 10 -8 0 -15 -4 -15 -10z"></path>
-                                <path id="pHGL79lOR" d="M16508 1159 c-19 -11 -24 -29 -8 -29 5 0 14 9 20 20 12 23 12 23 -12 9z"></path>
-                                <path id="p10Hy9WpP8" d="M16466 1084 c-8 -21 -8 -24 4 -24 5 0 14 9 20 20 8 16 8 20 -4 20 -7 0 -17 -7 -20 -16z"></path>
-                                <path id="p15m3j2P74" d="M16436 1024 c-8 -21 -8 -24 4 -24 5 0 14 9 20 20 8 16 8 20 -4 20 -7 0 -17 -7 -20 -16z"></path>
-                                <path id="pkQ6ydreP" d="M16400 961 c0 -17 18 -21 24 -6 3 9 0 15 -9 15 -8 0 -15 -4 -15 -9z"></path>
-                                <path id="pz0m32GJN" d="M16312 835 c-10 -12 -10 -15 1 -15 8 0 20 7 27 15 17 21 -10 20 -28 0z"></path>
-                                <path id="peCHIJKXW" d="M16277 789 c-28 -32 -10 -37 21 -6 18 19 22 27 11 27 -8 0 -23 -9 -32 -21z"></path>
-                                <path id="p1GxQZaHxZ" d="M16110 625 c-10 -12 -10 -15 3 -15 8 0 20 7 27 15 10 12 10 15 -3 15 -8 0 -20 -7 -27 -15z"></path>
-                                <path id="p18wSPa1h9" d="M16066 585 c-16 -12 -17 -15 -4 -15 8 0 21 7 28 15 16 19 1 19 -24 0z"></path>
-                                <path id="pp4BqCnn6" d="M15680 360 c-13 -9 -13 -10 0 -10 8 0 22 5 30 10 13 9 13 10 0 10 -8 0 -22 -5 -30 -10z"></path>
-                                <path id="p7f4dfrxM" d="M15395 260 c-13 -5 -14 -9 -5 -9 8 0 24 4 35 9 13 5 14 9 5 9 -8 0 -24 -4 -35 -9z"></path>
-                                <path id="pgdLFR8hl" d="M14958 183 c12 -2 30 -2 40 0 9 3 -1 5 -23 4 -22 0 -30 -2 -17 -4z"></path>
-                            </g>
-                        </g>
-                    </svg>
-                </div>
-                <div class="address">
-                    <span class="text-micro">Blvd. Colosio, Sm..549, Mz 1 Lote 3 Fracc. Lagos del Sol. C.P. 77560</span>
-                    <br class="bottom-brand-address-br"/>
-                    <span class="text-micro">Canc&uacute;n, M&eacute;xico</span>
-                </div>
-                <div class="copy">
-                    <span class="text-micro">Copyright:</span>
-                    <span> </span>
-                    <span class="text-micro">&copy;</span>
-                    <span> </span>
-                    <span class="text-micro">2025</span>
-                    <span class="text-micro"> Shuttle 2, Canc&uacute;n.</span>
-                    <span> </span>
-                    <span class="text-micro">All Right Reserved</span>
-                </div>
-            </div>
-        </footer>
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left">
+                                            <img src="https://shuttle-cancun.netlify.app/png/clock.png" style="width: 16px;height:16px;">
+                                            &nbsp;Hora de Servicio / <i>Service Hour</i>
+                                        </td>
+                                        <td align="right" style="font-weight: 700;">
+                                            {{return-trip.time}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left">
+                                            <img src="https://shuttle-cancun.netlify.app/png/map-pin.png" style="width: 16px;height:16px;">
+                                            &nbsp;Destino / <i>Destination</i>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <div style="padding-top:5px;font-weight: 700;">
+                                                {{return-trip.destination}}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table border="0" cellpadding="0" cellspacing="0" bgcolor="#DBDBDB" style="border: 1px solid #808080;border-radius:2px; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:17px; color:#808080; font-weight:700;">
+                                    <tr>
+                                        <td>
+                                            <div style="padding:5px;">Servicio / <i>Service</i></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left">
+                                            <img src="https://shuttle-cancun.netlify.app/png/car.png" style="width: 16px;height:16px;">
+                                            &nbsp;Tipo de Vehículo / <i>Vehicle Type</i>
+                                        </td>
+                                        <td align="right" style="font-weight: 700;">
+                                            {{service.vehicle-type}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style="border-bottom: 2px solid #a7a7a7; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left">
+                                            <img src="https://shuttle-cancun.netlify.app/png/distance.png" style="width: 16px;height:16px;">
+                                            &nbsp;Distancia estimada / <i>Estimated distance</i>
+                                        </td>
+                                        <td align="right" style="font-weight: 700;">
+                                            {{service.estimated-distance}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table border="0" cellpadding="0" cellspacing="0" bgcolor="#DBDBDB" style="border: 1px solid #808080;border-radius:2px; width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px; font-size:17px; color:#808080; font-weight:700;">
+                                    <tr>
+                                        <td>
+                                            <div style="padding:5px;">Pasajero / <i>Passenger</i></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" style=" width:100%;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:10px;margin-bottom:10px; font-size:16px; color:#808080;">
+                                    <tr>
+                                        <td align="left" style="font-weight: 700;">
+                                            <img src="https://shuttle-cancun.netlify.app/png/user-group.png" style="width: 16px;height:16px;">
+                                            {{passenger.name}}
+                                        </td>
+                                        <td align="center" style="font-weight: 700;">
+                                            <img src="https://shuttle-cancun.netlify.app/png/phone.png" style="width: 16px;height:16px;">
+                                            {{passenger.phone}}
+                                        </td>
+
+                                        <td align="right" style="font-weight: 700;">
+                                            <img src="https://shuttle-cancun.netlify.app/png/email.png" style="width: 16px;height:16px;">
+                                            {{passenger.email}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td> 
+                        </tr>
+                    </table>
+
+                    <!-- agradecimiientos -->
+                    <table cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="border-bottom: 4px solid #EF9E00; width:100%;border-collapse: collapse !important;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:35px; font-size:24px; color:#EF9E00;">
+                        <tr>
+                            <td style="width:15px;">&nbsp;</td>
+                            <td align="center">
+                                <p style="margin-bottom: 1vh; font-weight:700; padding-bottom: 10px;">
+                                    ¡Gracias por viajar con Shuttle2Cancun!
+                                    <br>
+                                    <i>Thanks for traveling with Shuttle2Cancun!</i>                                    
+                                </p>
+                            </td>
+                            <td style="width:15px;">&nbsp;</td>
+                        </tr>
+                    </table>
+
+                     <!-- Info Meeting Point -->
+                     <table cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="border:0; width:100%;border-collapse: collapse !important;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:35px; color:#808080;">
+                        <tr>
+                            <td style="width:15px;">&nbsp;</td>
+                            <td align="center">
+                                <p style="margin-bottom: 1vh;text-transform:uppercase;font-weight:700;font-size:18px;text-align:justify">
+                                    INFORMACION PUNTO DE ENCUENTRO PARA LLEGADA A AEROPUERTO DE CANCUN
+                                    <br>
+                                    <i>MEETING POINT INFORMATION FOR ARRIVAL AT CANCUN AIRPORT</i>                                    
+                                </p>
+                                <p style="font-size:20px;margin-top:10px;text-align:justify">
+                                    En la Terminal 2 para vuelos nacionales e internacionales: Welcome Bar, Zona de andenes (servicios precontratados y agencias de viaje). / <i>In Terminal 2 for national and international flights: Welcome Bar, Platform area (pre-contracted services and travel agencies).</i>
+                                </p>
+                                <p style="font-size:20px;margin-top:10px;text-align:justify">
+                                    En la Terminal 3 para todos los vuelos: Margarita Ville Bar, Zona de andenes (servicios pre contratados y agencias de viaje)/ <i>In Terminal 3 for all flights: Margarita Ville Bar, Platform area (pre-contracted services and travel agencies).</i>    
+                                </p>
+                                <p style="font-size:20px;margin-top:10px;text-align:justify">
+                                    En la Terminal 4 Welcome Bar, Zona de andenes (servicios precontratados y agencias de viaje). / <i>In Terminal 4 Welcome Bar, Platform Area (pre-contracted services and travel agencies)</i>    
+                                </p>                                
+                            </td>
+                            <td style="width:15px;">&nbsp;</td>
+                        </tr>
+                    </table>
+
+                    <!-- Notice box-->
+                    <table cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="border:0; width:100%;border-collapse: collapse !important;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:35px; color:#808080;">
+                        <tr>
+                            <td style="width:50px;">&nbsp;</td>
+                            <td bgcolor="#d6d7d8">
+                                <p style="font-size:16px;font-weight:700; padding:20px;border:1px solid #808080;text-align:justify">
+                                    En dado caso de no localizar a nuestros agentes favor de llamar al teléfono de Cancún: +52(998)4956972. / <i>If you cannot locate our agents, please call the Cancún phone number: +52(998)4956972.</i>
+                                </p>
+                            </td>
+                            <td style="width:50px;">&nbsp;</td>
+                        </tr>
+                    </table>
+
+                    <!-- terminos y condiciones-->
+                    <table cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="border:0; width:100%;border-collapse: collapse !important;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin-top:35px; color:#1500FF;font-size:12px;">
+                        <tr>
+                            <td align="center" style="text-transform: uppercase;">
+                                <a href="#">SERVICIO SUJETO A TERMINOS Y CONDICIONES (*) / <i>SERVICE SUBJECT TO TERMS AND CONDITIONS (*)</i></a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#454545" style="border: none; width:100%; border-collapse: collapse; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;margin-top:10px;margin-bottom:10px;">
+            <tr>
+                <td align="center">
+                    <img src="https://shuttle-cancun.netlify.app/png/logo_bn.png" style="max-width:300px;margin-top:70px;"/>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <div style="color:#ffffff;margin-top:70px;font-size:10px;">
+                        Blvd. Colosio, Sm..549, Mz 1 Lote 3 Fracc. Lagos del Sol. C.P. 77560
+                        <br>
+                        Cancún, México
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <div style="color:#ffffff;margin-top:70px;margin-bottom:70px;font-size:10px;">
+                        <i>Copyright: © 2025 Shuttle 2 Cancún. All Right Reserved</i>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </body>
 </html>
